@@ -1,0 +1,55 @@
+const form = {
+  name: 'External',
+  intl: {
+    titleId: '_Admin.Website._PageGroup.Media._Page.Video._Form.External._Title',
+    title: 'External',
+    descriptionId: '_Admin.Website._PageGroup.Media._Page.Video._Form.External._Description',
+    description: 'External Description',
+  },
+  app: null,
+  hideOn: null,
+  disableOn: null,
+  order: 4,
+  formFields: [
+    {
+      name: 'isExternalLink',
+      custom: null,
+      order: 1,
+      hideOn: null,
+      disableOn: null,
+      requiredOn: null,
+      fullWidth: true,
+      inlineEdit: null,
+      type: 'Boolean',
+      link: null,
+      defaultValue: null,
+      intl: {
+        titleId: '_Admin.Website._PageGroup.Media._Page.Video._Form.External._FormField.isExternalLink._Title',
+        title: 'isExternalLink',
+        descriptionId:
+          '_Admin.Website._PageGroup.Media._Page.Video._Form.External._FormField.isExternalLink._Description',
+        description: 'isExternalLink Description',
+      },
+    },
+    {
+      name: 'externalUrl',
+      custom: null,
+      order: 2,
+      hideOn: null,
+      disableOn: null,
+      requiredOn: null,
+      fullWidth: true,
+      inlineEdit: null,
+      type: 'String',
+      link: null,
+      defaultValue: null,
+      intl: {
+        titleId: '_Admin.Website._PageGroup.Media._Page.Video._Form.External._FormField.externalUrl._Title',
+        title: 'externalUrl',
+        descriptionId: '_Admin.Website._PageGroup.Media._Page.Video._Form.External._FormField.externalUrl._Description',
+        description: 'externalUrl Description',
+      },
+    },
+  ],
+};
+export default form;

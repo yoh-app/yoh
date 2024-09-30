@@ -1,0 +1,157 @@
+[
+  {
+    "model": "PageView",
+    "parent": "Page",
+    "name": "Page.PageView"
+  },
+  {
+    "model": "RequestClick",
+    "parent": "Page",
+    "name": "Page.RequestClick"
+  },
+  {
+    "model": "Collection",
+    "parent": "Website",
+    "name": "Website.Collection"
+  },
+  {
+    "model": "PageCollection",
+    "parent": "Website",
+    "name": "Website.PageCollection"
+  },
+  {
+    "model": "ProductCollection",
+    "parent": "Website",
+    "name": "Website.ProductCollection"
+  },
+  {
+    "model": "Link",
+    "parent": "User",
+    "name": "User.Link"
+  },
+  {
+    "model": "Category",
+    "parent": "Website",
+    "name": "Website.Category"
+  },
+  {
+    "model": "User",
+    "parent": null,
+    "name": "undefined.User"
+  },
+  {
+    "model": "Request",
+    "parent": "Page",
+    "name": "Page.Request"
+  },
+  {
+    "model": "Attribute",
+    "parent": "Website",
+    "name": "Website.Attribute"
+  },
+  {
+    "model": "Page",
+    "parent": "Website",
+    "name": "Website.Page"
+  },
+  {
+    "model": "Coupon",
+    "parent": "Website",
+    "name": "Website.Coupon"
+  },
+  {
+    "model": "Social",
+    "parent": "Website",
+    "name": "Website.Social"
+  },
+  {
+    "model": "Shipping",
+    "parent": "Website",
+    "name": "Website.Shipping"
+  },
+  {
+    "model": "Item",
+    "parent": "Page",
+    "name": "Page.Item"
+  },
+  {
+    "model": "Product",
+    "parent": "Website",
+    "name": "Website.Product"
+  },
+  {
+    "model": "Document",
+    "parent": "User",
+    "name": "User.Document"
+  },
+  {
+    "model": "Picture",
+    "parent": "User",
+    "name": "User.Picture"
+  },
+  {
+    "model": "Redeemable",
+    "parent": "User",
+    "name": "User.Redeemable"
+  },
+  {
+    "model": "Embed",
+    "parent": "User",
+    "name": "User.Embed"
+  },
+  {
+    "model": "Video",
+    "parent": "User",
+    "name": "User.Video"
+  },
+  {
+    "model": "Audio",
+    "parent": "User",
+    "name": "User.Audio"
+  },
+  {
+    "model": "Attachment",
+    "parent": "User",
+    "name": "User.Attachment"
+  },
+  {
+    "model": "Order",
+    "parent": "Website",
+    "name": "Website.Order"
+  },
+  {
+    "model": "Customer",
+    "parent": "Website",
+    "name": "Website.Customer"
+  },
+  {
+    "model": "Website",
+    "parent": "User",
+    "name": "User.Website"
+  },
+  {
+    "model": "Block",
+    "parent": "User",
+    "name": "User.Block"
+  },
+  {
+    "model": "OrderedProduct",
+    "parent": "Order",
+    "name": "Order.OrderedProduct"
+  },
+  {
+    "model": "Trait",
+    "parent": "Product",
+    "name": "Product.Trait"
+  },
+  {
+    "model": "Value",
+    "parent": "Trait",
+    "name": "Trait.Value"
+  },
+  {
+    "model": "Notification",
+    "parent": "Website",
+    "name": "Website.Notification"
+  }
+]

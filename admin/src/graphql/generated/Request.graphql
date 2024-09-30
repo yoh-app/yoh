@@ -1,0 +1,110 @@
+fragment RequestFields on Request {
+  createdAt
+  deletedAt
+  deleted
+  updatedAt
+  accept
+  acceptBefore
+  active
+  applicationFee
+  audioId
+  chain
+  currencyCode
+  customerId
+  days
+  description
+  expiredAt
+  id
+  imageObj
+  message
+  name
+  pageId
+  paid
+  paidAt
+  paymentId
+  paymentType
+  price
+  requestStatus
+  stripeFee
+  subject
+  total
+  transactionHash
+  url
+  useUsd
+  videoId
+  walletAddress
+}
+
+fragment Request on Request {
+  ...RequestFields
+  audio {
+    ...AudioFields
+  }
+  customer {
+    ...CustomerFields
+  }
+  page {
+    ...PageFields
+  }
+  video {
+    ...VideoFields
+  }
+}
+
+query findUniqueRequest($where: RequestWhereUniqueInput!) {
+  findUniqueRequest(where: $where) {
+    ...Request
+  }
+}
+
+query findManyRequest(
+  $where: RequestWhereInput
+  $orderBy: [RequestOrderByWithRelationInput!]
+  $cursor: RequestWhereUniqueInput
+  $skip: Int
+  $take: Int
+) {
+  findManyRequest(where: $where, orderBy: $orderBy, cursor: $cursor, skip: $skip, take: $take) {
+    ...Request
+  }
+}
+
+query findManyRequestCount(
+  $where: RequestWhereInput
+  $orderBy: [RequestOrderByWithRelationInput!]
+  $cursor: RequestWhereUniqueInput
+  $skip: Int
+  $take: Int
+) {
+  findManyRequestCount(where: $where, orderBy: $orderBy, cursor: $cursor, skip: $skip, take: $take)
+}
+
+mutation createOneRequest($data: RequestCreateInput!) {
+  createOneRequest(data: $data) {
+    ...Request
+  }
+}
+
+mutation updateOneRequest($where: RequestWhereUniqueInput!, $data: RequestUpdateInput!) {
+  updateOneRequest(where: $where, data: $data) {
+    ...Request
+  }
+}
+
+mutation deleteOneRequest($where: RequestWhereUniqueInput!) {
+  deleteOneRequest(where: $where) {
+    ...Request
+  }
+}
+
+mutation deleteManyRequest($where: RequestWhereInput) {
+  deleteManyRequest(where: $where) {
+    count
+  }
+}
+
+mutation updateManyRequest($where: RequestWhereInput, $data: RequestUpdateManyMutationInput!) {
+  updateManyRequest(where: $where, data: $data) {
+    count
+  }
+}

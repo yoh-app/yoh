@@ -1,0 +1,96 @@
+fragment OrderFields on Order {
+  createdAt
+  deletedAt
+  deleted
+  updatedAt
+  affiliateFee
+  affiliateWalletAddress
+  affiliateWebsiteSlug
+  amount
+  applicationFee
+  completed
+  couponId
+  currencyCode
+  customerId
+  discount
+  id
+  isAirdrop
+  paid
+  paymentType
+  stripeFee
+  total
+  transactionHash
+  walletAddress
+  websiteId
+}
+
+fragment Order on Order {
+  ...OrderFields
+  coupon {
+    ...CouponFields
+  }
+  customer {
+    ...CustomerFields
+  }
+  website {
+    ...WebsiteFields
+  }
+}
+
+query findUniqueOrder($where: OrderWhereUniqueInput!) {
+  findUniqueOrder(where: $where) {
+    ...Order
+  }
+}
+
+query findManyOrder(
+  $where: OrderWhereInput
+  $orderBy: [OrderOrderByWithRelationInput!]
+  $cursor: OrderWhereUniqueInput
+  $skip: Int
+  $take: Int
+) {
+  findManyOrder(where: $where, orderBy: $orderBy, cursor: $cursor, skip: $skip, take: $take) {
+    ...Order
+  }
+}
+
+query findManyOrderCount(
+  $where: OrderWhereInput
+  $orderBy: [OrderOrderByWithRelationInput!]
+  $cursor: OrderWhereUniqueInput
+  $skip: Int
+  $take: Int
+) {
+  findManyOrderCount(where: $where, orderBy: $orderBy, cursor: $cursor, skip: $skip, take: $take)
+}
+
+mutation createOneOrder($data: OrderCreateInput!) {
+  createOneOrder(data: $data) {
+    ...Order
+  }
+}
+
+mutation updateOneOrder($where: OrderWhereUniqueInput!, $data: OrderUpdateInput!) {
+  updateOneOrder(where: $where, data: $data) {
+    ...Order
+  }
+}
+
+mutation deleteOneOrder($where: OrderWhereUniqueInput!) {
+  deleteOneOrder(where: $where) {
+    ...Order
+  }
+}
+
+mutation deleteManyOrder($where: OrderWhereInput) {
+  deleteManyOrder(where: $where) {
+    count
+  }
+}
+
+mutation updateManyOrder($where: OrderWhereInput, $data: OrderUpdateManyMutationInput!) {
+  updateManyOrder(where: $where, data: $data) {
+    count
+  }
+}

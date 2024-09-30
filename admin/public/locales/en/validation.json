@@ -1,0 +1,10 @@
+{
+  "validation-num-integer": "Must be integers.",
+  "validation-string-max-length-40": "Must be less than 40 character.",
+  "validation-string-max-length-200": "Must be less than 200 character.",
+  "validation-string-alphanumeric": "Must be alphanumeric",
+  "validation-num-gte-0": "Must be greater than or equal to 0",
+  "validation-num-lte-100": "Must be less than or equal to 100",
+  "validation-required": "Required",
+  "validation-url": "Must be a valid url format"
+}

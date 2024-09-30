@@ -1,0 +1,85 @@
+fragment AffiliateFields on Affiliate {
+  createdAt
+  deletedAt
+  deleted
+  updatedAt
+  active
+  customerId
+  description
+  id
+  igId
+  lineId
+  name
+  tgId
+  url
+  walletAddress
+  websiteId
+}
+
+fragment Affiliate on Affiliate {
+  ...AffiliateFields
+  customer {
+    ...CustomerFields
+  }
+  website {
+    ...WebsiteFields
+  }
+}
+
+query findUniqueAffiliate($where: AffiliateWhereUniqueInput!) {
+  findUniqueAffiliate(where: $where) {
+    ...Affiliate
+  }
+}
+
+query findManyAffiliate(
+  $where: AffiliateWhereInput
+  $orderBy: [AffiliateOrderByWithRelationInput!]
+  $cursor: AffiliateWhereUniqueInput
+  $skip: Int
+  $take: Int
+) {
+  findManyAffiliate(where: $where, orderBy: $orderBy, cursor: $cursor, skip: $skip, take: $take) {
+    ...Affiliate
+  }
+}
+
+query findManyAffiliateCount(
+  $where: AffiliateWhereInput
+  $orderBy: [AffiliateOrderByWithRelationInput!]
+  $cursor: AffiliateWhereUniqueInput
+  $skip: Int
+  $take: Int
+) {
+  findManyAffiliateCount(where: $where, orderBy: $orderBy, cursor: $cursor, skip: $skip, take: $take)
+}
+
+mutation createOneAffiliate($data: AffiliateCreateInput!) {
+  createOneAffiliate(data: $data) {
+    ...Affiliate
+  }
+}
+
+mutation updateOneAffiliate($where: AffiliateWhereUniqueInput!, $data: AffiliateUpdateInput!) {
+  updateOneAffiliate(where: $where, data: $data) {
+    ...Affiliate
+  }
+}
+
+mutation deleteOneAffiliate($where: AffiliateWhereUniqueInput!) {
+  deleteOneAffiliate(where: $where) {
+    ...Affiliate
+  }
+}
+
+mutation deleteManyAffiliate($where: AffiliateWhereInput) {
+  deleteManyAffiliate(where: $where) {
+    count
+  }
+}
+
+mutation updateManyAffiliate($where: AffiliateWhereInput, $data: AffiliateUpdateManyMutationInput!) {
+  updateManyAffiliate(where: $where, data: $data) {
+    count
+  }
+}

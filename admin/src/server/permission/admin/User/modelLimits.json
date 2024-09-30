@@ -1,0 +1,47 @@
+[
+  {
+    "createdAt": "2024-05-12T17:43:42.171Z",
+    "deletedAt": null,
+    "deleted": false,
+    "updatedAt": "2024-05-12T17:43:42.172Z",
+    "adminId": "clw3tqg3y354759gbvpyy64bb38",
+    "currency": "USD",
+    "currencyCode": null,
+    "id": "clw3tqg63354845gbvpkxr3cz6m",
+    "interval": "month",
+    "name": "Community",
+    "price": 0,
+    "stripePriceId": "prod_IXVAqfloIZ9cvS",
+    "modelLimits": []
+  },
+  {
+    "createdAt": "2024-05-12T17:43:42.197Z",
+    "deletedAt": null,
+    "deleted": false,
+    "updatedAt": "2024-05-12T17:43:42.198Z",
+    "adminId": "clw3tqg3y354759gbvpyy64bb38",
+    "currency": "USD",
+    "currencyCode": null,
+    "id": "clw3tqg6t354867gbvp98uk1h62",
+    "interval": "month",
+    "name": "Private",
+    "price": 20,
+    "stripePriceId": "price_1HwQ9TIKeSKTkSHCK9HnokRW",
+    "modelLimits": []
+  },
+  {
+    "createdAt": "2024-05-12T17:43:42.226Z",
+    "deletedAt": null,
+    "deleted": false,
+    "updatedAt": "2024-05-12T17:43:42.226Z",
+    "adminId": "clw3tqg3y354759gbvpyy64bb38",
+    "currency": "USD",
+    "currencyCode": null,
+    "id": "clw3tqg7m354889gbvp17zpbdma",
+    "interval": "month",
+    "name": "Super",
+    "price": 30,
+    "stripePriceId": "price_1IvEdTIKeSKTkSHCkfgXYwIx",
+    "modelLimits": []
+  }
+]

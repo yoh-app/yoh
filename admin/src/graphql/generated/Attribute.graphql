@@ -1,0 +1,76 @@
+fragment AttributeFields on Attribute {
+  createdAt
+  deletedAt
+  deleted
+  updatedAt
+  id
+  name
+  slug
+  values
+  websiteId
+}
+
+fragment Attribute on Attribute {
+  ...AttributeFields
+  website {
+    ...WebsiteFields
+  }
+}
+
+query findUniqueAttribute($where: AttributeWhereUniqueInput!) {
+  findUniqueAttribute(where: $where) {
+    ...Attribute
+  }
+}
+
+query findManyAttribute(
+  $where: AttributeWhereInput
+  $orderBy: [AttributeOrderByWithRelationInput!]
+  $cursor: AttributeWhereUniqueInput
+  $skip: Int
+  $take: Int
+) {
+  findManyAttribute(where: $where, orderBy: $orderBy, cursor: $cursor, skip: $skip, take: $take) {
+    ...Attribute
+  }
+}
+
+query findManyAttributeCount(
+  $where: AttributeWhereInput
+  $orderBy: [AttributeOrderByWithRelationInput!]
+  $cursor: AttributeWhereUniqueInput
+  $skip: Int
+  $take: Int
+) {
+  findManyAttributeCount(where: $where, orderBy: $orderBy, cursor: $cursor, skip: $skip, take: $take)
+}
+
+mutation createOneAttribute($data: AttributeCreateInput!) {
+  createOneAttribute(data: $data) {
+    ...Attribute
+  }
+}
+
+mutation updateOneAttribute($where: AttributeWhereUniqueInput!, $data: AttributeUpdateInput!) {
+  updateOneAttribute(where: $where, data: $data) {
+    ...Attribute
+  }
+}
+
+mutation deleteOneAttribute($where: AttributeWhereUniqueInput!) {
+  deleteOneAttribute(where: $where) {
+    ...Attribute
+  }
+}
+
+mutation deleteManyAttribute($where: AttributeWhereInput) {
+  deleteManyAttribute(where: $where) {
+    count
+  }
+}
+
+mutation updateManyAttribute($where: AttributeWhereInput, $data: AttributeUpdateManyMutationInput!) {
+  updateManyAttribute(where: $where, data: $data) {
+    count
+  }
+}

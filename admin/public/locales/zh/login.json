@@ -1,0 +1,11 @@
+{
+  "WebsiteAdmin.Login.welcome": "歡迎來到Yoh.app, 請用Email加入/登入",
+  "WebsiteAdmin.Login.admin": "Admin",
+  "WebsiteAdmin.Login.message": "我們已經將帶有驗證碼的信件發送至你的電子郵件",
+  "WebsiteAdmin.Login.button": "登入",
+  "WebsiteAdmin.Login.code": "發送驗證碼",
+  "WebsiteAdmin.Login.codePlacehoder": "請輸入驗證碼",
+  "WebsiteAdmin.CheckEmailModal.keep": "請保持此視窗開啟",
+  "WebsiteAdmin.CheckEmailModal.description": "請至您的電子信箱點擊確認信裡的magic words按鈕",
+  "WebsiteAdmin.CheckEmailModal.cancel": "取消"
+}

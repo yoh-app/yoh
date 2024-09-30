@@ -1,0 +1,74 @@
+fragment PageViewFields on PageView {
+  createdAt
+  deletedAt
+  deleted
+  updatedAt
+  id
+  ip
+  pageId
+}
+
+fragment PageView on PageView {
+  ...PageViewFields
+  page {
+    ...PageFields
+  }
+}
+
+query findUniquePageView($where: PageViewWhereUniqueInput!) {
+  findUniquePageView(where: $where) {
+    ...PageView
+  }
+}
+
+query findManyPageView(
+  $where: PageViewWhereInput
+  $orderBy: [PageViewOrderByWithRelationInput!]
+  $cursor: PageViewWhereUniqueInput
+  $skip: Int
+  $take: Int
+) {
+  findManyPageView(where: $where, orderBy: $orderBy, cursor: $cursor, skip: $skip, take: $take) {
+    ...PageView
+  }
+}
+
+query findManyPageViewCount(
+  $where: PageViewWhereInput
+  $orderBy: [PageViewOrderByWithRelationInput!]
+  $cursor: PageViewWhereUniqueInput
+  $skip: Int
+  $take: Int
+) {
+  findManyPageViewCount(where: $where, orderBy: $orderBy, cursor: $cursor, skip: $skip, take: $take)
+}
+
+mutation createOnePageView($data: PageViewCreateInput!) {
+  createOnePageView(data: $data) {
+    ...PageView
+  }
+}
+
+mutation updateOnePageView($where: PageViewWhereUniqueInput!, $data: PageViewUpdateInput!) {
+  updateOnePageView(where: $where, data: $data) {
+    ...PageView
+  }
+}
+
+mutation deleteOnePageView($where: PageViewWhereUniqueInput!) {
+  deleteOnePageView(where: $where) {
+    ...PageView
+  }
+}
+
+mutation deleteManyPageView($where: PageViewWhereInput) {
+  deleteManyPageView(where: $where) {
+    count
+  }
+}
+
+mutation updateManyPageView($where: PageViewWhereInput, $data: PageViewUpdateManyMutationInput!) {
+  updateManyPageView(where: $where, data: $data) {
+    count
+  }
+}

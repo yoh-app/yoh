@@ -1,0 +1,11 @@
+{
+  "WebsiteAdmin.Login.welcome": "Welcome to Yoh.app, join / login with your email",
+  "WebsiteAdmin.Login.admin": "Admin",
+  "WebsiteAdmin.Login.message": "An email with a verifiction code was just sent to your email",
+  "WebsiteAdmin.Login.button": "Log in",
+  "WebsiteAdmin.Login.code": "Send code",
+  "WebsiteAdmin.Login.codePlacehoder": "Email verification code",
+  "WebsiteAdmin.CheckEmailModal.keep": "Keep this tab open",
+  "WebsiteAdmin.CheckEmailModal.description": "Use your phone to click the magic words in your email",
+  "WebsiteAdmin.CheckEmailModal.cancel": "cancel"
+}

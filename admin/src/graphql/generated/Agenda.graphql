@@ -1,0 +1,78 @@
+fragment AgendaFields on Agenda {
+  createdAt
+  deletedAt
+  deleted
+  updatedAt
+  description
+  endTime
+  eventId
+  id
+  imageObj
+  name
+  startTime
+}
+
+fragment Agenda on Agenda {
+  ...AgendaFields
+  event {
+    ...EventFields
+  }
+}
+
+query findUniqueAgenda($where: AgendaWhereUniqueInput!) {
+  findUniqueAgenda(where: $where) {
+    ...Agenda
+  }
+}
+
+query findManyAgenda(
+  $where: AgendaWhereInput
+  $orderBy: [AgendaOrderByWithRelationInput!]
+  $cursor: AgendaWhereUniqueInput
+  $skip: Int
+  $take: Int
+) {
+  findManyAgenda(where: $where, orderBy: $orderBy, cursor: $cursor, skip: $skip, take: $take) {
+    ...Agenda
+  }
+}
+
+query findManyAgendaCount(
+  $where: AgendaWhereInput
+  $orderBy: [AgendaOrderByWithRelationInput!]
+  $cursor: AgendaWhereUniqueInput
+  $skip: Int
+  $take: Int
+) {
+  findManyAgendaCount(where: $where, orderBy: $orderBy, cursor: $cursor, skip: $skip, take: $take)
+}
+
+mutation createOneAgenda($data: AgendaCreateInput!) {
+  createOneAgenda(data: $data) {
+    ...Agenda
+  }
+}
+
+mutation updateOneAgenda($where: AgendaWhereUniqueInput!, $data: AgendaUpdateInput!) {
+  updateOneAgenda(where: $where, data: $data) {
+    ...Agenda
+  }
+}
+
+mutation deleteOneAgenda($where: AgendaWhereUniqueInput!) {
+  deleteOneAgenda(where: $where) {
+    ...Agenda
+  }
+}
+
+mutation deleteManyAgenda($where: AgendaWhereInput) {
+  deleteManyAgenda(where: $where) {
+    count
+  }
+}
+
+mutation updateManyAgenda($where: AgendaWhereInput, $data: AgendaUpdateManyMutationInput!) {
+  updateManyAgenda(where: $where, data: $data) {
+    count
+  }
+}

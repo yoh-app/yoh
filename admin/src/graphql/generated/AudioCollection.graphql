@@ -1,0 +1,77 @@
+fragment AudioCollectionFields on AudioCollection {
+  createdAt
+  deletedAt
+  deleted
+  updatedAt
+  active
+  description
+  displayTitle
+  id
+  name
+  websiteId
+}
+
+fragment AudioCollection on AudioCollection {
+  ...AudioCollectionFields
+  website {
+    ...WebsiteFields
+  }
+}
+
+query findUniqueAudioCollection($where: AudioCollectionWhereUniqueInput!) {
+  findUniqueAudioCollection(where: $where) {
+    ...AudioCollection
+  }
+}
+
+query findManyAudioCollection(
+  $where: AudioCollectionWhereInput
+  $orderBy: [AudioCollectionOrderByWithRelationInput!]
+  $cursor: AudioCollectionWhereUniqueInput
+  $skip: Int
+  $take: Int
+) {
+  findManyAudioCollection(where: $where, orderBy: $orderBy, cursor: $cursor, skip: $skip, take: $take) {
+    ...AudioCollection
+  }
+}
+
+query findManyAudioCollectionCount(
+  $where: AudioCollectionWhereInput
+  $orderBy: [AudioCollectionOrderByWithRelationInput!]
+  $cursor: AudioCollectionWhereUniqueInput
+  $skip: Int
+  $take: Int
+) {
+  findManyAudioCollectionCount(where: $where, orderBy: $orderBy, cursor: $cursor, skip: $skip, take: $take)
+}
+
+mutation createOneAudioCollection($data: AudioCollectionCreateInput!) {
+  createOneAudioCollection(data: $data) {
+    ...AudioCollection
+  }
+}
+
+mutation updateOneAudioCollection($where: AudioCollectionWhereUniqueInput!, $data: AudioCollectionUpdateInput!) {
+  updateOneAudioCollection(where: $where, data: $data) {
+    ...AudioCollection
+  }
+}
+
+mutation deleteOneAudioCollection($where: AudioCollectionWhereUniqueInput!) {
+  deleteOneAudioCollection(where: $where) {
+    ...AudioCollection
+  }
+}
+
+mutation deleteManyAudioCollection($where: AudioCollectionWhereInput) {
+  deleteManyAudioCollection(where: $where) {
+    count
+  }
+}
+
+mutation updateManyAudioCollection($where: AudioCollectionWhereInput, $data: AudioCollectionUpdateManyMutationInput!) {
+  updateManyAudioCollection(where: $where, data: $data) {
+    count
+  }
+}

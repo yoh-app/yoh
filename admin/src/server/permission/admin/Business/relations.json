@@ -1,0 +1,157 @@
+[
+  {
+    "model": "Embed",
+    "parent": "User",
+    "name": "User.Embed"
+  },
+  {
+    "model": "Video",
+    "parent": "User",
+    "name": "User.Video"
+  },
+  {
+    "model": "Audio",
+    "parent": "User",
+    "name": "User.Audio"
+  },
+  {
+    "model": "Attachment",
+    "parent": "User",
+    "name": "User.Attachment"
+  },
+  {
+    "model": "Order",
+    "parent": "Business",
+    "name": "Business.Order"
+  },
+  {
+    "model": "PageView",
+    "parent": "Page",
+    "name": "Page.PageView"
+  },
+  {
+    "model": "RequestClick",
+    "parent": "Page",
+    "name": "Page.RequestClick"
+  },
+  {
+    "model": "Collection",
+    "parent": "Business",
+    "name": "Business.Collection"
+  },
+  {
+    "model": "PageGroup",
+    "parent": "Business",
+    "name": "Business.PageGroup"
+  },
+  {
+    "model": "ProductCollection",
+    "parent": "Business",
+    "name": "Business.ProductCollection"
+  },
+  {
+    "model": "Link",
+    "parent": "User",
+    "name": "User.Link"
+  },
+  {
+    "model": "Category",
+    "parent": "Business",
+    "name": "Business.Category"
+  },
+  {
+    "model": "User",
+    "parent": null,
+    "name": "null.User"
+  },
+  {
+    "model": "Request",
+    "parent": "Page",
+    "name": "Page.Request"
+  },
+  {
+    "model": "Attribute",
+    "parent": "Business",
+    "name": "Business.Attribute"
+  },
+  {
+    "model": "Page",
+    "parent": "Business",
+    "name": "Business.Page"
+  },
+  {
+    "model": "Coupon",
+    "parent": "Business",
+    "name": "Business.Coupon"
+  },
+  {
+    "model": "Social",
+    "parent": "Business",
+    "name": "Business.Social"
+  },
+  {
+    "model": "Shipping",
+    "parent": "Business",
+    "name": "Business.Shipping"
+  },
+  {
+    "model": "Item",
+    "parent": "Page",
+    "name": "Page.Item"
+  },
+  {
+    "model": "Product",
+    "parent": "Business",
+    "name": "Business.Product"
+  },
+  {
+    "model": "Document",
+    "parent": "User",
+    "name": "User.Document"
+  },
+  {
+    "model": "Picture",
+    "parent": "User",
+    "name": "User.Picture"
+  },
+  {
+    "model": "Redeemable",
+    "parent": "User",
+    "name": "User.Redeemable"
+  },
+  {
+    "model": "Customer",
+    "parent": "Business",
+    "name": "Business.Customer"
+  },
+  {
+    "model": "Business",
+    "parent": "User",
+    "name": "User.Business"
+  },
+  {
+    "model": "Block",
+    "parent": "User",
+    "name": "User.Block"
+  },
+  {
+    "model": "OrderedProduct",
+    "parent": "Order",
+    "name": "Order.OrderedProduct"
+  },
+  {
+    "model": "Trait",
+    "parent": "Product",
+    "name": "Product.Trait"
+  },
+  {
+    "model": "Value",
+    "parent": "Trait",
+    "name": "Trait.Value"
+  },
+  {
+    "model": "Notification",
+    "parent": "Business",
+    "name": "Business.Notification"
+  }
+]

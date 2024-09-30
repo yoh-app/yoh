@@ -1,0 +1,93 @@
+fragment AttachmentFields on Attachment {
+  createdAt
+  deletedAt
+  deleted
+  updatedAt
+  attachmentObj
+  attachmentType
+  description
+  eventId
+  id
+  imageObj
+  name
+  previewObj
+  productId
+  upload
+  url
+  userId
+  websiteId
+}
+
+fragment Attachment on Attachment {
+  ...AttachmentFields
+  event {
+    ...EventFields
+  }
+  product {
+    ...ProductFields
+  }
+  user {
+    ...UserFields
+  }
+  website {
+    ...WebsiteFields
+  }
+}
+
+query findUniqueAttachment($where: AttachmentWhereUniqueInput!) {
+  findUniqueAttachment(where: $where) {
+    ...Attachment
+  }
+}
+
+query findManyAttachment(
+  $where: AttachmentWhereInput
+  $orderBy: [AttachmentOrderByWithRelationInput!]
+  $cursor: AttachmentWhereUniqueInput
+  $skip: Int
+  $take: Int
+) {
+  findManyAttachment(where: $where, orderBy: $orderBy, cursor: $cursor, skip: $skip, take: $take) {
+    ...Attachment
+  }
+}
+
+query findManyAttachmentCount(
+  $where: AttachmentWhereInput
+  $orderBy: [AttachmentOrderByWithRelationInput!]
+  $cursor: AttachmentWhereUniqueInput
+  $skip: Int
+  $take: Int
+) {
+  findManyAttachmentCount(where: $where, orderBy: $orderBy, cursor: $cursor, skip: $skip, take: $take)
+}
+
+mutation createOneAttachment($data: AttachmentCreateInput!) {
+  createOneAttachment(data: $data) {
+    ...Attachment
+  }
+}
+
+mutation updateOneAttachment($where: AttachmentWhereUniqueInput!, $data: AttachmentUpdateInput!) {
+  updateOneAttachment(where: $where, data: $data) {
+    ...Attachment
+  }
+}
+
+mutation deleteOneAttachment($where: AttachmentWhereUniqueInput!) {
+  deleteOneAttachment(where: $where) {
+    ...Attachment
+  }
+}
+
+mutation deleteManyAttachment($where: AttachmentWhereInput) {
+  deleteManyAttachment(where: $where) {
+    count
+  }
+}
+
+mutation updateManyAttachment($where: AttachmentWhereInput, $data: AttachmentUpdateManyMutationInput!) {
+  updateManyAttachment(where: $where, data: $data) {
+    count
+  }
+}

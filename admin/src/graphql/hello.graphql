@@ -1,0 +1,157 @@
+mutation login($email: String!, $password: String!) {
+  login(email: $email, password: $password) {
+    id
+    email
+    name
+  }
+}
+
+mutation signup($email: String!, $password: String!, $name: String!) {
+  signup(email: $email, password: $password, name: $name) {
+    id
+    email
+    name
+  }
+}
+
+query me {
+  me {
+    id
+    name
+    email
+  }
+}
+
+query getCustomer($websiteSlug: String!) {
+  getCustomer(websiteSlug: $websiteSlug)
+}
+
+mutation signUploadUrl($filename: String!, $acl: String!, $contentType: String!) {
+  signUploadUrl(filename: $filename, acl: $acl, contentType: $contentType)
+}
+
+query permission {
+  permission
+}
+
+mutation enterAdmin($admin: String!, $id: String!) {
+  enterAdmin(admin: $admin, id: $id)
+}
+
+mutation logoutAdmin {
+  logoutAdmin
+}
+
+mutation logout {
+  logout
+}
+
+mutation addTemplate($id: String!, $currentJson: String!) {
+  addTemplate(id: $id, currentJson: $currentJson)
+}
+
+query getTemplates {
+  getTemplates
+}
+
+mutation stripeCheckout(
+  $items: Json!
+  $websiteSlug: String!
+  $couponCode: String
+  $shippingId: String
+  $customerId: String!
+) {
+  stripeCheckout(
+    items: $items
+    websiteSlug: $websiteSlug
+    shippingId: $shippingId
+    customerId: $customerId
+    couponCode: $couponCode
+  )
+}
+
+query getAdminSettings($admin: String!, $Admin: String, $Version: String!) {
+  getAdminSettings(admin: $admin, Admin: $Admin, Version: $Version)
+}
+
+query getUiTree($adminId: String!) {
+  getUiTree(adminId: $adminId)
+}
+
+query stripeEnabled($websiteSlug: String!) {
+  stripeEnabled(websiteSlug: $websiteSlug)
+}
+
+query stripeAccountStatus {
+  stripeAccountStatus
+}
+
+mutation getMetadata($pageUrl: String!) {
+  getMetadata(pageUrl: $pageUrl)
+}
+
+mutation getAnalytics(
+  $type: String!
+  $beginSec: Int!
+  $endSec: Int!
+  $wedsiteId: String!
+  $isRenew: Boolean
+) {
+  getAnalytics(
+    type: $type
+    beginSec: $beginSec
+    endSec: $endSec
+    wedsiteId: $wedsiteId
+    isRenew: $isRenew
+  )
+}
+
+mutation serverMint($orderedProductId: String!, $walletAddress: String!) {
+  serverMint(orderedProductId: $orderedProductId, walletAddress: $walletAddress)
+}
+
+mutation installTemplate($templateId: String!, $websiteId: String!) {
+  installTemplate(templateId: $templateId, websiteId: $websiteId) {
+    id
+  }
+}
+
+
+mutation adminMintNft($orderId: String!) {
+  adminMintNft(orderId: $orderId) {
+    id
+    amount
+    applicationFee
+    
+  }
+}
+
+mutation payProduct($productId: String!, $websiteSlug: String!, $customerId: String!, $paymentAddress: String!) {
+  payProduct(productId: $productId, websiteSlug: $websiteSlug, customerId: $customerId, paymentAddress: $paymentAddress) {
+    id
+    amount
+    applicationFee
+    
+  }
+}
+mutation preparePurchase($productId: String!, $websiteSlug: String!, $customerId: String, $paymentAddress: String!, $quantity: Int!, $affiliateWalletAddress: String) {
+  preparePurchase(productId: $productId, websiteSlug: $websiteSlug, customerId: $customerId, paymentAddress: $paymentAddress, quantity: $quantity, affiliateWalletAddress: $affiliateWalletAddress)
+}
+
+mutation finishPurchase($orderId: String!,  $transactionHash: String!) {
+  finishPurchase(orderId: $orderId, transactionHash: $transactionHash)
+}
+
+mutation prepareStripePurchase($productId: String!, $websiteSlug: String!, $customerId: String!) {
+  prepareStripePurchase(productId: $productId, websiteSlug: $websiteSlug, customerId: $customerId) 
+}
+
+mutation updateOrder($orderId: String!, $transactionHash: String) {
+  updateOrder(orderId: $orderId, transactionHash: $transactionHash) {
+    id
+  }
+}
+
+mutation prepareRequest($requestId: String!) {
+  prepareRequest(requestId: $requestId)
+}

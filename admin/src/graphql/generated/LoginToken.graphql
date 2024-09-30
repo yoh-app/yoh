@@ -1,0 +1,82 @@
+fragment LoginTokenFields on LoginToken {
+  createdAt
+  deletedAt
+  deleted
+  updatedAt
+  approved
+  domain
+  email
+  expires
+  geo
+  id
+  ip
+  secret
+  userAgent
+  userAgentRaw
+  userId
+}
+
+fragment LoginToken on LoginToken {
+  ...LoginTokenFields
+  user {
+    ...UserFields
+  }
+}
+
+query findUniqueLoginToken($where: LoginTokenWhereUniqueInput!) {
+  findUniqueLoginToken(where: $where) {
+    ...LoginToken
+  }
+}
+
+query findManyLoginToken(
+  $where: LoginTokenWhereInput
+  $orderBy: [LoginTokenOrderByWithRelationInput!]
+  $cursor: LoginTokenWhereUniqueInput
+  $skip: Int
+  $take: Int
+) {
+  findManyLoginToken(where: $where, orderBy: $orderBy, cursor: $cursor, skip: $skip, take: $take) {
+    ...LoginToken
+  }
+}
+
+query findManyLoginTokenCount(
+  $where: LoginTokenWhereInput
+  $orderBy: [LoginTokenOrderByWithRelationInput!]
+  $cursor: LoginTokenWhereUniqueInput
+  $skip: Int
+  $take: Int
+) {
+  findManyLoginTokenCount(where: $where, orderBy: $orderBy, cursor: $cursor, skip: $skip, take: $take)
+}
+
+mutation createOneLoginToken($data: LoginTokenCreateInput!) {
+  createOneLoginToken(data: $data) {
+    ...LoginToken
+  }
+}
+
+mutation updateOneLoginToken($where: LoginTokenWhereUniqueInput!, $data: LoginTokenUpdateInput!) {
+  updateOneLoginToken(where: $where, data: $data) {
+    ...LoginToken
+  }
+}
+
+mutation deleteOneLoginToken($where: LoginTokenWhereUniqueInput!) {
+  deleteOneLoginToken(where: $where) {
+    ...LoginToken
+  }
+}
+
+mutation deleteManyLoginToken($where: LoginTokenWhereInput) {
+  deleteManyLoginToken(where: $where) {
+    count
+  }
+}
+
+mutation updateManyLoginToken($where: LoginTokenWhereInput, $data: LoginTokenUpdateManyMutationInput!) {
+  updateManyLoginToken(where: $where, data: $data) {
+    count
+  }
+}

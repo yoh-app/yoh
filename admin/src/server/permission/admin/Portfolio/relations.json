@@ -1,0 +1,77 @@
+[
+  {
+    "model": "PageView",
+    "parent": "Page",
+    "name": "Page.PageView"
+  },
+  {
+    "model": "RequestClick",
+    "parent": "Page",
+    "name": "Page.RequestClick"
+  },
+  {
+    "model": "PageGroup",
+    "parent": "Website",
+    "name": "Website.PageGroup"
+  },
+  {
+    "model": "User",
+    "parent": null,
+    "name": "null.User"
+  },
+  {
+    "model": "Request",
+    "parent": "Page",
+    "name": "Page.Request"
+  },
+  {
+    "model": "Attribute",
+    "parent": "Website",
+    "name": "Website.Attribute"
+  },
+  {
+    "model": "Page",
+    "parent": "Website",
+    "name": "Website.Page"
+  },
+  {
+    "model": "Attachment",
+    "parent": "User",
+    "name": "User.Attachment"
+  },
+  {
+    "model": "Order",
+    "parent": "Website",
+    "name": "Website.Order"
+  },
+  {
+    "model": "Customer",
+    "parent": "Website",
+    "name": "Website.Customer"
+  },
+  {
+    "model": "Website",
+    "parent": "User",
+    "name": "User.Website"
+  },
+  {
+    "model": "OrderedProduct",
+    "parent": "Order",
+    "name": "Order.OrderedProduct"
+  },
+  {
+    "model": "Trait",
+    "parent": "Product",
+    "name": "Product.Trait"
+  },
+  {
+    "model": "Value",
+    "parent": "Trait",
+    "name": "Trait.Value"
+  },
+  {
+    "model": "Notification",
+    "parent": "Website",
+    "name": "Website.Notification"
+  }
+]

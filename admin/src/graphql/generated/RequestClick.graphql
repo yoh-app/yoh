@@ -1,0 +1,86 @@
+fragment RequestClickFields on RequestClick {
+  createdAt
+  deletedAt
+  deleted
+  updatedAt
+  audioId
+  id
+  ip
+  pageId
+  requestId
+  videoId
+}
+
+fragment RequestClick on RequestClick {
+  ...RequestClickFields
+  audio {
+    ...AudioFields
+  }
+  page {
+    ...PageFields
+  }
+  request {
+    ...RequestFields
+  }
+  video {
+    ...VideoFields
+  }
+}
+
+query findUniqueRequestClick($where: RequestClickWhereUniqueInput!) {
+  findUniqueRequestClick(where: $where) {
+    ...RequestClick
+  }
+}
+
+query findManyRequestClick(
+  $where: RequestClickWhereInput
+  $orderBy: [RequestClickOrderByWithRelationInput!]
+  $cursor: RequestClickWhereUniqueInput
+  $skip: Int
+  $take: Int
+) {
+  findManyRequestClick(where: $where, orderBy: $orderBy, cursor: $cursor, skip: $skip, take: $take) {
+    ...RequestClick
+  }
+}
+
+query findManyRequestClickCount(
+  $where: RequestClickWhereInput
+  $orderBy: [RequestClickOrderByWithRelationInput!]
+  $cursor: RequestClickWhereUniqueInput
+  $skip: Int
+  $take: Int
+) {
+  findManyRequestClickCount(where: $where, orderBy: $orderBy, cursor: $cursor, skip: $skip, take: $take)
+}
+
+mutation createOneRequestClick($data: RequestClickCreateInput!) {
+  createOneRequestClick(data: $data) {
+    ...RequestClick
+  }
+}
+
+mutation updateOneRequestClick($where: RequestClickWhereUniqueInput!, $data: RequestClickUpdateInput!) {
+  updateOneRequestClick(where: $where, data: $data) {
+    ...RequestClick
+  }
+}
+
+mutation deleteOneRequestClick($where: RequestClickWhereUniqueInput!) {
+  deleteOneRequestClick(where: $where) {
+    ...RequestClick
+  }
+}
+
+mutation deleteManyRequestClick($where: RequestClickWhereInput) {
+  deleteManyRequestClick(where: $where) {
+    count
+  }
+}
+
+mutation updateManyRequestClick($where: RequestClickWhereInput, $data: RequestClickUpdateManyMutationInput!) {
+  updateManyRequestClick(where: $where, data: $data) {
+    count
+  }
+}

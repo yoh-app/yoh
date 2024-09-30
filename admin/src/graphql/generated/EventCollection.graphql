@@ -1,0 +1,77 @@
+fragment EventCollectionFields on EventCollection {
+  createdAt
+  deletedAt
+  deleted
+  updatedAt
+  active
+  description
+  displayTitle
+  id
+  name
+  websiteId
+}
+
+fragment EventCollection on EventCollection {
+  ...EventCollectionFields
+  website {
+    ...WebsiteFields
+  }
+}
+
+query findUniqueEventCollection($where: EventCollectionWhereUniqueInput!) {
+  findUniqueEventCollection(where: $where) {
+    ...EventCollection
+  }
+}
+
+query findManyEventCollection(
+  $where: EventCollectionWhereInput
+  $orderBy: [EventCollectionOrderByWithRelationInput!]
+  $cursor: EventCollectionWhereUniqueInput
+  $skip: Int
+  $take: Int
+) {
+  findManyEventCollection(where: $where, orderBy: $orderBy, cursor: $cursor, skip: $skip, take: $take) {
+    ...EventCollection
+  }
+}
+
+query findManyEventCollectionCount(
+  $where: EventCollectionWhereInput
+  $orderBy: [EventCollectionOrderByWithRelationInput!]
+  $cursor: EventCollectionWhereUniqueInput
+  $skip: Int
+  $take: Int
+) {
+  findManyEventCollectionCount(where: $where, orderBy: $orderBy, cursor: $cursor, skip: $skip, take: $take)
+}
+
+mutation createOneEventCollection($data: EventCollectionCreateInput!) {
+  createOneEventCollection(data: $data) {
+    ...EventCollection
+  }
+}
+
+mutation updateOneEventCollection($where: EventCollectionWhereUniqueInput!, $data: EventCollectionUpdateInput!) {
+  updateOneEventCollection(where: $where, data: $data) {
+    ...EventCollection
+  }
+}
+
+mutation deleteOneEventCollection($where: EventCollectionWhereUniqueInput!) {
+  deleteOneEventCollection(where: $where) {
+    ...EventCollection
+  }
+}
+
+mutation deleteManyEventCollection($where: EventCollectionWhereInput) {
+  deleteManyEventCollection(where: $where) {
+    count
+  }
+}
+
+mutation updateManyEventCollection($where: EventCollectionWhereInput, $data: EventCollectionUpdateManyMutationInput!) {
+  updateManyEventCollection(where: $where, data: $data) {
+    count
+  }
+}

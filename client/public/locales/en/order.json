@@ -1,0 +1,10 @@
+{
+  "order-list-title": "My Orders",
+  "order-list-description": "View your orders and click on the right side to see the order details.",
+  "order-list-unselected": "Please click on the right side to see the order details.",
+  "order-list-empty": "No orders",
+  "order-detail-title": "Order detail",
+  "order-detail-description": "Check the order amount and the contents of your purchase.",
+  "order-complete-congratulation": "Thank you. Your order is complete!",
+  "order-complete-number": "Order no"
+}

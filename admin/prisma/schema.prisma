@@ -1,0 +1,1143 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url               = env("POSTGRES_PRISMA_URL") // uses connection pooling
+  directUrl         = env("POSTGRES_URL_NON_POOLING") // uses a direct connection
+}
+
+model SlugCounter {
+  counter   Int?
+  createdAt DateTime? @default(now())
+  deleted   Boolean?  @default(false)
+  deletedAt DateTime?
+  id        String    @id @default(cuid())
+  model     String?
+  slug      String?
+  title     String?
+  updatedAt DateTime? @updatedAt
+}
+
+model Affiliate {
+
+
+
+  createdAt DateTime? @default(now())
+
+  deletedAt DateTime?
+  deleted   Boolean?  @default(false)
+  updatedAt DateTime? @updatedAt
+
+  active   Boolean?  @default(true)
+  customer Customer? @relation(fields: [customerId], references: [id])
+
+  customerId    String?  @unique
+  description   String?
+  id            String   @id @default(cuid())
+  igId          String?
+  lineId        String?
+  name          String?
+  tgId          String?
+  url           String?
+  walletAddress String?
+  website       Website? @relation(fields: [websiteId], references: [id])
+
+  websiteId String?
+
+}
+
+model Agenda {
+
+
+
+  createdAt DateTime? @default(now())
+
+  deletedAt DateTime?
+  deleted   Boolean?  @default(false)
+  updatedAt DateTime? @updatedAt
+
+  description String?
+  endTime     DateTime?
+  event       Event?    @relation(fields: [eventId], references: [id])
+
+  eventId   String?
+  id        String    @id @default(cuid())
+  imageObj  Json?
+  name      String?
+  speakers  Speaker[]
+  startTime DateTime?
+
+}
+
+model Attachment {
+
+
+
+  createdAt DateTime? @default(now())
+
+  deletedAt DateTime?
+  deleted   Boolean?  @default(false)
+  updatedAt DateTime? @updatedAt
+
+  attachmentObj  Json?
+  attachmentType AttachmentType?
+  description    String?
+  event          Event?          @relation(fields: [eventId], references: [id])
+
+  eventId    String?
+  id         String   @id @default(cuid())
+  imageObj   Json?
+  name       String?
+  previewObj Json?
+  product    Product? @relation(fields: [productId], references: [id])
+
+  productId String?
+  upload    Json?
+  url       String? @unique
+  user      User?   @relation(fields: [userId], references: [id])
+
+  userId  String?
+  website Website? @relation(fields: [websiteId], references: [id])
+
+  websiteId String?
+
+}
+
+model Attribute {
+
+
+
+  createdAt DateTime? @default(now())
+
+  deletedAt DateTime?
+  deleted   Boolean?  @default(false)
+  updatedAt DateTime? @updatedAt
+
+  id      String   @id @default(cuid())
+  name    String?
+  slug    String?  @unique
+  values  Json?
+  website Website? @relation(fields: [websiteId], references: [id])
+
+  websiteId String?
+
+}
+
+model Audio {
+
+
+
+  createdAt DateTime? @default(now())
+
+  deletedAt DateTime?
+  deleted   Boolean?  @default(false)
+  updatedAt DateTime? @updatedAt
+
+  active           Boolean?          @default(true)
+  audioCollections AudioCollection[]
+  audioObj         Json?
+  audioPreviewObj  Json?
+  audioViews       AudioView[]
+  content          Json?
+  description      String?
+  externalUrl      String?
+  id               String            @id @default(cuid())
+  imageObj         Json?
+  isExternalLink   Boolean?
+  isIndex          Boolean?
+  menu             Boolean?
+  name             String?
+  navColor         NavColor?
+  password         String?
+  requestClicks    RequestClick[]
+  requests         Request[]
+  slug             String?           @unique
+  website          Website?          @relation(fields: [websiteId], references: [id])
+
+  websiteId String?
+
+}
+
+model AudioCollection {
+
+
+
+  createdAt DateTime? @default(now())
+
+  deletedAt DateTime?
+  deleted   Boolean?  @default(false)
+  updatedAt DateTime? @updatedAt
+
+  active       Boolean? @default(true)
+  audios       Audio[]
+  description  String?
+  displayTitle Boolean?
+  id           String   @id @default(cuid())
+  name         String?
+  website      Website? @relation(fields: [websiteId], references: [id])
+
+  websiteId String?
+
+}
+
+model AudioView {
+
+
+
+  createdAt DateTime? @default(now())
+
+  deletedAt DateTime?
+  deleted   Boolean?  @default(false)
+  updatedAt DateTime? @updatedAt
+
+  audio Audio? @relation(fields: [audioId], references: [id])
+
+  audioId String?
+  id      String  @id @default(cuid())
+  ip      String?
+
+}
+
+model Coupon {
+
+
+
+  createdAt DateTime? @default(now())
+
+  deletedAt DateTime?
+  deleted   Boolean?  @default(false)
+  updatedAt DateTime? @updatedAt
+
+  active      Boolean?    @default(true)
+  amountOff   Float?
+  couponType  CouponType?
+  description String?
+  events      Event[]
+  expiredAt   DateTime?
+  id          String      @id @default(cuid())
+  name        String?
+  orders      Order[]
+  percentOff  Float?
+  products    Product[]
+  quantity    Int?
+  slug        String?     @unique
+  startAt     DateTime?
+  website     Website?    @relation(fields: [websiteId], references: [id])
+
+  websiteId String?
+
+}
+
+model Customer {
+
+
+
+  createdAt DateTime? @default(now())
+
+  deletedAt DateTime?
+  deleted   Boolean?  @default(false)
+  updatedAt DateTime? @updatedAt
+
+  affiliate Affiliate?
+  email     String?
+  id        String     @id @default(cuid())
+  imageObj  Json?
+  name      String?
+  note      String?
+  orders    Order[]
+  requests  Request[]
+  user      User?      @relation(fields: [userId], references: [id])
+
+  userId        String?
+  walletAddress String?
+  website       Website? @relation(fields: [websiteId], references: [id])
+
+  websiteId String?
+
+}
+
+model Event {
+
+
+
+  createdAt DateTime? @default(now())
+
+  deletedAt DateTime?
+  deleted   Boolean?  @default(false)
+  updatedAt DateTime? @updatedAt
+
+  active                     Boolean?            @default(true)
+  agenda                     Agenda[]
+  attachments                Attachment[]
+  chain                      Chain?
+  commissionFee              Float?
+  content                    Json?
+  contractAddress            String?
+  coupons                    Coupon[]
+  description                String?
+  endDate                    DateTime?
+  endTime                    DateTime?
+  eventCollections           EventCollection[]
+  eventEndTime               DateTime?
+  eventGroups                EventGroup[]
+  eventStartTime             DateTime?
+  externalNftChain           Chain?
+  externalNftContractAddress String?
+  externalUrl                String?
+  gallery                    Json?
+  hasLocation                Boolean?
+  id                         String              @id @default(cuid())
+  imageObj                   Json?
+  isExternalNft              Boolean?
+  locationAddress            String?
+  locationLat                Float?
+  locationLng                Float?
+  marketingLocation          MarketingLocation[]
+  maxOrderPerUser            Int?
+  maxQuantity                Int?
+  name                       String?
+  orderedProducts            OrderedProduct[]
+  payWithUSD                 Boolean?
+  price                      Float?
+  productType                ProductType?
+  quantity                   Int?
+  quantitySold               Int?
+  royaltyBps                 Float?
+  royaltyFee                 Int?
+  saleEnabled                Boolean?
+  salePrice                  Float?
+  slug                       String?             @unique
+  speakers                   Speaker[]
+  startDate                  DateTime?
+  startTime                  DateTime?
+  telegramApiToken           String?
+  telegramBotId              String?
+  transactionHash            String?
+  useCommission              Boolean?
+  useExternalNft             Boolean?
+  useMultipleDays            Boolean?
+  useNft                     Boolean?
+  usePrice                   Boolean?
+  useQuantity                Boolean?
+  useRoyalty                 Boolean?
+  useStartTime               Boolean?
+  useUsd                     Boolean?
+  useVariations              Boolean?
+  variationOptions           Json?
+  variations                 Json?
+  website                    Website?            @relation(fields: [websiteId], references: [id])
+
+  websiteId String?
+
+}
+
+model EventCollection {
+
+
+
+  createdAt DateTime? @default(now())
+
+  deletedAt DateTime?
+  deleted   Boolean?  @default(false)
+  updatedAt DateTime? @updatedAt
+
+  active       Boolean? @default(true)
+  description  String?
+  displayTitle Boolean?
+  events       Event[]
+  id           String   @id @default(cuid())
+  name         String?
+  website      Website? @relation(fields: [websiteId], references: [id])
+
+  websiteId String?
+
+}
+
+model EventGroup {
+
+
+
+  createdAt DateTime? @default(now())
+
+  deletedAt DateTime?
+  deleted   Boolean?  @default(false)
+  updatedAt DateTime? @updatedAt
+
+  active       Boolean?      @default(true)
+  description  String?
+  events       Event[]
+  id           String        @id @default(cuid())
+  name         String?
+  organization Organization? @relation(fields: [organizationId], references: [id])
+
+  organizationId String?
+  website        Website? @relation(fields: [websiteId], references: [id])
+
+  websiteId String?
+
+}
+
+model LoginToken {
+
+
+
+  createdAt DateTime? @default(now())
+
+  deletedAt DateTime?
+  deleted   Boolean?  @default(false)
+  updatedAt DateTime? @updatedAt
+
+  approved Boolean?
+  domain   String?
+  email    String?
+  expires  DateTime?
+  geo      String?
+  id       String    @id @default(cuid())
+  ip       String?
+  secret   String?
+  user     User?     @relation(fields: [userId], references: [id])
+
+  userAgent    String?
+  userAgentRaw String?
+  userId       String?
+
+}
+
+model MarketingLocation {
+
+
+
+  createdAt DateTime? @default(now())
+
+  deletedAt DateTime?
+  deleted   Boolean?  @default(false)
+  updatedAt DateTime? @updatedAt
+
+  description     String?
+  events          Event[]
+  id              String    @id @default(cuid())
+  imageObj        Json?
+  locationAddress String?
+  locationLat     Float?
+  locationLng     Float?
+  name            String?
+  products        Product[]
+  website         Website?  @relation(fields: [websiteId], references: [id])
+
+  websiteId String?
+
+}
+
+model Notification {
+
+
+
+  createdAt DateTime? @default(now())
+
+  deletedAt DateTime?
+  deleted   Boolean?  @default(false)
+  updatedAt DateTime? @updatedAt
+
+  action      String?
+  description String?
+  id          String   @id @default(cuid())
+  isUnRead    Boolean?
+  message     String?
+  model       String?
+  modelId     String?
+  title       String?
+  url         String?
+  user        User?    @relation(fields: [userId], references: [id])
+
+  userId  String?
+  website Website? @relation(fields: [websiteId], references: [id])
+
+  websiteId String?
+
+}
+
+model Order {
+
+
+
+  createdAt DateTime? @default(now())
+
+  deletedAt DateTime?
+  deleted   Boolean?  @default(false)
+  updatedAt DateTime? @updatedAt
+
+  affiliateFee           Float?
+  affiliateWalletAddress String?
+  affiliateWebsiteSlug   String?
+  amount                 Float?
+  applicationFee         Float?
+  completed              Boolean?
+  coupon                 Coupon?  @relation(fields: [couponId], references: [id])
+
+  couponId     String?
+  currencyCode CurrencyCode?
+  customer     Customer?     @relation(fields: [customerId], references: [id])
+
+  customerId      String?
+  discount        Float?
+  id              String           @id @default(cuid())
+  isAirdrop       Boolean?
+  orderedProducts OrderedProduct[]
+  paid            Boolean?
+  paymentType     PaymentType?
+  stripeFee       Boolean?
+  total           Float?
+  transactionHash String?
+  walletAddress   String?
+  website         Website?         @relation(fields: [websiteId], references: [id])
+
+  websiteId String?
+
+}
+
+model OrderedProduct {
+
+
+
+  createdAt DateTime? @default(now())
+
+  deletedAt DateTime?
+  deleted   Boolean?  @default(false)
+  updatedAt DateTime? @updatedAt
+
+  description String?
+  event       Event?  @relation(fields: [eventId], references: [id])
+
+  eventId  String?
+  id       String   @id @default(cuid())
+  imageObj Json?
+  minted   Boolean?
+  name     String?
+  order    Order?   @relation(fields: [orderId], references: [id])
+
+  orderId String?
+  price   Float?
+  product Product? @relation(fields: [productId], references: [id])
+
+  productId        String?
+  productSlug      String?
+  productType      ProductType?
+  productUrl       String?
+  quantity         Int?
+  redeemedQuantity Int?
+  slug             String?      @unique
+  tokenId          String?
+  total            Float?
+  transactionHash  String?
+  variationId      String?
+  variationName    String?
+  variationOption  Json?
+  walletAddress    String?
+
+}
+
+model Organization {
+
+
+
+  createdAt DateTime? @default(now())
+
+  deletedAt DateTime?
+  deleted   Boolean?  @default(false)
+  updatedAt DateTime? @updatedAt
+
+  description      String?
+  eventGroups      EventGroup[]
+  id               String         @id @default(cuid())
+  logoObj          Json?
+  name             String?
+  productGroups    ProductGroup[]
+  slug             String?        @unique
+  telegramApiToken String?
+  telegramBotId    String?
+  user             User?          @relation(fields: [userId], references: [id])
+
+  userId        String?
+  walletAddress String?
+  websiteGroups WebsiteGroup[]
+
+}
+
+model Page {
+
+
+
+  createdAt DateTime? @default(now())
+
+  deletedAt DateTime?
+  deleted   Boolean?  @default(false)
+  updatedAt DateTime? @updatedAt
+
+  active          Boolean?         @default(true)
+  content         Json?
+  description     String?
+  externalUrl     String?
+  id              String           @id @default(cuid())
+  imageObj        Json?
+  isExternalLink  Boolean?
+  isIndex         Boolean?
+  menu            Boolean?
+  name            String?
+  navColor        NavColor?
+  pageCollections PageCollection[]
+  pageViews       PageView[]
+  password        String?
+  products        Product[]
+  requestClicks   RequestClick[]
+  requests        Request[]
+  slug            String?          @unique
+  website         Website?         @relation(fields: [websiteId], references: [id])
+
+  websiteId String?
+
+}
+
+model PageCollection {
+
+
+
+  createdAt DateTime? @default(now())
+
+  deletedAt DateTime?
+  deleted   Boolean?  @default(false)
+  updatedAt DateTime? @updatedAt
+
+  active       Boolean? @default(true)
+  description  String?
+  displayTitle Boolean?
+  id           String   @id @default(cuid())
+  name         String?
+  pages        Page[]
+  website      Website? @relation(fields: [websiteId], references: [id])
+
+  websiteId String?
+
+}
+
+model PageView {
+
+
+
+  createdAt DateTime? @default(now())
+
+  deletedAt DateTime?
+  deleted   Boolean?  @default(false)
+  updatedAt DateTime? @updatedAt
+
+  id   String  @id @default(cuid())
+  ip   String?
+  page Page?   @relation(fields: [pageId], references: [id])
+
+  pageId String?
+
+}
+
+model Product {
+
+
+
+  createdAt DateTime? @default(now())
+
+  deletedAt DateTime?
+  deleted   Boolean?  @default(false)
+  updatedAt DateTime? @updatedAt
+
+  active                     Boolean?            @default(true)
+  attachments                Attachment[]
+  chain                      Chain?
+  commissionFee              Float?
+  content                    Json?
+  contractAddress            String?
+  coupons                    Coupon[]
+  description                String?
+  endTime                    DateTime?
+  eventEndTime               DateTime?
+  eventStartTime             DateTime?
+  externalNftChain           Chain?
+  externalNftContractAddress String?
+  externalUrl                String?
+  gallery                    Json?
+  hasLocation                Boolean?
+  id                         String              @id @default(cuid())
+  imageObj                   Json?
+  locationAddress            String?
+  locationLat                Float?
+  locationLng                Float?
+  marketingLocations         MarketingLocation[]
+  maxQuantity                Int?
+  name                       String?
+  orderedProducts            OrderedProduct[]
+  pages                      Page[]
+  price                      Float?
+  productCollections         ProductCollection[]
+  productGroups              ProductGroup[]
+  productType                ProductType?
+  prodyctType                ProductType?
+  quantity                   Int?
+  quantitySold               Int?
+  royaltyFee                 Int?
+  salePrice                  Float?
+  slug                       String?             @unique
+  startTime                  DateTime?
+  transactionHash            String?
+  useCommission              Boolean?
+  useExternalNft             Boolean?
+  useNft                     Boolean?
+  useQuantity                Boolean?
+  useRoyalty                 Boolean?
+  useStartTime               Boolean?
+  useUsd                     Boolean?
+  useVariations              Boolean?
+  variationOptions           Json?
+  variations                 Json?
+  website                    Website?            @relation(fields: [websiteId], references: [id])
+
+  websiteId String?
+
+}
+
+model ProductCollection {
+
+
+
+  createdAt DateTime? @default(now())
+
+  deletedAt DateTime?
+  deleted   Boolean?  @default(false)
+  updatedAt DateTime? @updatedAt
+
+  active       Boolean?  @default(true)
+  description  String?
+  displayTitle Boolean?
+  id           String    @id @default(cuid())
+  name         String?
+  products     Product[]
+  website      Website?  @relation(fields: [websiteId], references: [id])
+
+  websiteId String?
+
+}
+
+model ProductGroup {
+
+
+
+  createdAt DateTime? @default(now())
+
+  deletedAt DateTime?
+  deleted   Boolean?  @default(false)
+  updatedAt DateTime? @updatedAt
+
+  id           String        @id @default(cuid())
+  name         String?
+  organization Organization? @relation(fields: [organizationId], references: [id])
+
+  organizationId String?
+  products       Product[]
+  website        Website?  @relation(fields: [websiteId], references: [id])
+
+  websiteId String?
+
+}
+
+model RefreshToken {
+
+
+
+  createdAt DateTime? @default(now())
+
+  deletedAt DateTime?
+  deleted   Boolean?  @default(false)
+  updatedAt DateTime? @updatedAt
+
+  expires      DateTime?
+  geo          String?
+  ip           String?
+  lastActive   DateTime?
+  loginTokenId String    @id
+  user         User?     @relation(fields: [userId], references: [id])
+
+  userAgent    String?
+  userAgentRaw String?
+  userId       String?
+  value        String?
+
+}
+
+model Request {
+
+
+
+  createdAt DateTime? @default(now())
+
+  deletedAt DateTime?
+  deleted   Boolean?  @default(false)
+  updatedAt DateTime? @updatedAt
+
+  accept         Boolean?
+  acceptBefore   DateTime?
+  active         Boolean?  @default(true)
+  applicationFee Float?
+  audio          Audio?    @relation(fields: [audioId], references: [id])
+
+  audioId      String?
+  chain        Chain?
+  currencyCode CurrencyCode?
+  customer     Customer?     @relation(fields: [customerId], references: [id])
+
+  customerId  String?
+  days        Int?
+  description String?
+  expiredAt   DateTime?
+  id          String    @id @default(cuid())
+  imageObj    Json?
+  message     String?
+  name        String?
+  page        Page?     @relation(fields: [pageId], references: [id])
+
+  pageId          String?
+  paid            Boolean?
+  paidAt          DateTime?
+  paymentId       String?
+  paymentType     PaymentType?
+  price           Float?
+  requestClicks   RequestClick[]
+  requestStatus   RequestStatus?
+  stripeFee       Float?
+  subject         String?
+  total           Float?
+  transactionHash String?
+  url             String?
+  useUsd          Boolean?
+  video           Video?         @relation(fields: [videoId], references: [id])
+
+  videoId       String?
+  walletAddress String?
+
+}
+
+model RequestClick {
+
+
+
+  createdAt DateTime? @default(now())
+
+  deletedAt DateTime?
+  deleted   Boolean?  @default(false)
+  updatedAt DateTime? @updatedAt
+
+  audio Audio? @relation(fields: [audioId], references: [id])
+
+  audioId String?
+  id      String  @id @default(cuid())
+  ip      String?
+  page    Page?   @relation(fields: [pageId], references: [id])
+
+  pageId  String?
+  request Request? @relation(fields: [requestId], references: [id])
+
+  requestId String?
+  video     Video?  @relation(fields: [videoId], references: [id])
+
+  videoId String?
+
+}
+
+model Speaker {
+
+
+
+  createdAt DateTime? @default(now())
+
+  deletedAt DateTime?
+  deleted   Boolean?  @default(false)
+  updatedAt DateTime? @updatedAt
+
+  agenda Agenda? @relation(fields: [agendaId], references: [id])
+
+  agendaId    String?
+  description String?
+  event       Event?  @relation(fields: [eventId], references: [id])
+
+  eventId  String?
+  id       String  @id @default(cuid())
+  imageObj Json?
+  name     String?
+
+}
+
+model User {
+
+  adminFilters Json?
+
+
+  createdAt DateTime? @default(now())
+
+  deletedAt DateTime?
+  deleted   Boolean?  @default(false)
+  updatedAt DateTime? @updatedAt
+
+  attachments      Attachment[]
+  customers        Customer[]
+  email            String?        @unique
+  id               String         @id @default(cuid())
+  imageObj         Json?
+  loginTokens      LoginToken[]
+  name             String?
+  notifications    Notification[]
+  organizations    Organization[]
+  password         String?
+  refreshTokens    RefreshToken[]
+  stripeAccountId  String?
+  stripeCustomerId String?
+  telegramUserId   String?
+  websites         Website[]
+
+}
+
+model Video {
+
+
+
+  createdAt DateTime? @default(now())
+
+  deletedAt DateTime?
+  deleted   Boolean?  @default(false)
+  updatedAt DateTime? @updatedAt
+
+  active           Boolean?          @default(true)
+  content          Json?
+  description      String?
+  externalUrl      String?
+  id               String            @id @default(cuid())
+  imageObj         Json?
+  isExternalLink   Boolean?
+  isIndex          Boolean?
+  isYoutube        Boolean?
+  menu             Boolean?
+  name             String?
+  navColor         NavColor?
+  password         String?
+  requestClicks    RequestClick[]
+  requests         Request[]
+  slug             String?           @unique
+  videoCollections VideoCollection[]
+  videoObj         Json?
+  videoPreviewObj  Json?
+  videoViews       VideoView[]
+  website          Website?          @relation(fields: [websiteId], references: [id])
+
+  websiteId String?
+
+}
+
+model VideoCollection {
+
+
+
+  createdAt DateTime? @default(now())
+
+  deletedAt DateTime?
+  deleted   Boolean?  @default(false)
+  updatedAt DateTime? @updatedAt
+
+  active       Boolean? @default(true)
+  description  String?
+  displayTitle Boolean?
+  id           String   @id @default(cuid())
+  name         String?
+  videos       Video[]
+  website      Website? @relation(fields: [websiteId], references: [id])
+
+  websiteId String?
+
+}
+
+model VideoView {
+
+
+
+  createdAt DateTime? @default(now())
+
+  deletedAt DateTime?
+  deleted   Boolean?  @default(false)
+  updatedAt DateTime? @updatedAt
+
+  id    String  @id @default(cuid())
+  ip    String?
+  video Video?  @relation(fields: [videoId], references: [id])
+
+  videoId String?
+
+}
+
+model Website {
+
+
+
+  createdAt DateTime? @default(now())
+
+  deletedAt DateTime?
+  deleted   Boolean?  @default(false)
+  updatedAt DateTime? @updatedAt
+
+  active             Boolean?            @default(true)
+  address            Json?
+  adminFilters       Json?
+  affiliates         Affiliate[]
+  attachments        Attachment[]
+  attributes         Attribute[]
+  audioCollections   AudioCollection[]
+  audios             Audio[]
+  chain              Json?
+  coupons            Coupon[]
+  currencyCode       CurrencyCode?
+  customers          Customer[]
+  description        String?
+  eventCollections   EventCollection[]
+  eventGroups        EventGroup[]
+  events             Event[]
+  gasless            Boolean?
+  hasLocation        Boolean?
+  id                 String              @id @default(cuid())
+  imageObj           Json?
+  isTemplate         Boolean?
+  languageCode       LanguageCode?
+  locationAddress    String?
+  locationLat        Float?
+  locationLng        Float?
+  logoObj            Json?
+  marketingLocations MarketingLocation[]
+  menu               Json?
+  name               String?
+  notifications      Notification[]
+  orders             Order[]
+  pageCollections    PageCollection[]
+  pages              Page[]
+  phone              String?
+  productCollections ProductCollection[]
+  productGroups      ProductGroup[]
+  products           Product[]
+  slug               String?             @unique
+  stripeAccountId    String?
+  themeColor         Color?
+  user               User?               @relation(fields: [userId], references: [id])
+
+  userId           String?
+  videoCollections VideoCollection[]
+  videos           Video[]
+  walletAddress    String?
+  websiteGroups    WebsiteGroup[]
+
+}
+
+model WebsiteGroup {
+
+
+
+  createdAt DateTime? @default(now())
+
+  deletedAt DateTime?
+  deleted   Boolean?  @default(false)
+  updatedAt DateTime? @updatedAt
+
+  id           String        @id @default(cuid())
+  name         String?
+  organization Organization? @relation(fields: [organizationId], references: [id])
+
+  organizationId String?
+  websites       Website[]
+
+}
+
+enum AttachmentType {
+  audio
+  document
+  image
+  video
+
+}
+
+enum Chain {
+  arbitrum
+  avalanche
+  ethereum
+  polygon
+
+}
+
+enum Color {
+  amber
+  blue
+  bluegrey
+  brown
+  cyan
+  deeporange
+  deeppurple
+  green
+  indigo
+  lightblue
+  lightbrown
+  lightgreen
+  orange
+  pink
+  purple
+  red
+  rose
+  teal
+
+}
+
+enum CouponType {
+  amountOff
+  percentOff
+
+}
+
+enum CurrencyCode {
+  usd
+
+}
+
+enum LanguageCode {
+  en
+  zh
+
+}
+
+enum NavColor {
+  black
+  white
+
+}
+
+enum PaymentType {
+  crypto
+  stripe
+
+}
+
+enum ProductType {
+  deal
+  event
+  membership
+  product
+
+}
+
+enum RequestStatus {
+  active
+  completed
+  expired
+  pending
+  processing
+  rejected
+
+}

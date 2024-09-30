@@ -1,0 +1,83 @@
+fragment CouponFields on Coupon {
+  createdAt
+  deletedAt
+  deleted
+  updatedAt
+  active
+  amountOff
+  couponType
+  description
+  expiredAt
+  id
+  name
+  percentOff
+  quantity
+  slug
+  startAt
+  websiteId
+}
+
+fragment Coupon on Coupon {
+  ...CouponFields
+  website {
+    ...WebsiteFields
+  }
+}
+
+query findUniqueCoupon($where: CouponWhereUniqueInput!) {
+  findUniqueCoupon(where: $where) {
+    ...Coupon
+  }
+}
+
+query findManyCoupon(
+  $where: CouponWhereInput
+  $orderBy: [CouponOrderByWithRelationInput!]
+  $cursor: CouponWhereUniqueInput
+  $skip: Int
+  $take: Int
+) {
+  findManyCoupon(where: $where, orderBy: $orderBy, cursor: $cursor, skip: $skip, take: $take) {
+    ...Coupon
+  }
+}
+
+query findManyCouponCount(
+  $where: CouponWhereInput
+  $orderBy: [CouponOrderByWithRelationInput!]
+  $cursor: CouponWhereUniqueInput
+  $skip: Int
+  $take: Int
+) {
+  findManyCouponCount(where: $where, orderBy: $orderBy, cursor: $cursor, skip: $skip, take: $take)
+}
+
+mutation createOneCoupon($data: CouponCreateInput!) {
+  createOneCoupon(data: $data) {
+    ...Coupon
+  }
+}
+
+mutation updateOneCoupon($where: CouponWhereUniqueInput!, $data: CouponUpdateInput!) {
+  updateOneCoupon(where: $where, data: $data) {
+    ...Coupon
+  }
+}
+
+mutation deleteOneCoupon($where: CouponWhereUniqueInput!) {
+  deleteOneCoupon(where: $where) {
+    ...Coupon
+  }
+}
+
+mutation deleteManyCoupon($where: CouponWhereInput) {
+  deleteManyCoupon(where: $where) {
+    count
+  }
+}
+
+mutation updateManyCoupon($where: CouponWhereInput, $data: CouponUpdateManyMutationInput!) {
+  updateManyCoupon(where: $where, data: $data) {
+    count
+  }
+}

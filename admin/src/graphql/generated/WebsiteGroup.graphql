@@ -1,0 +1,74 @@
+fragment WebsiteGroupFields on WebsiteGroup {
+  createdAt
+  deletedAt
+  deleted
+  updatedAt
+  id
+  name
+  organizationId
+}
+
+fragment WebsiteGroup on WebsiteGroup {
+  ...WebsiteGroupFields
+  organization {
+    ...OrganizationFields
+  }
+}
+
+query findUniqueWebsiteGroup($where: WebsiteGroupWhereUniqueInput!) {
+  findUniqueWebsiteGroup(where: $where) {
+    ...WebsiteGroup
+  }
+}
+
+query findManyWebsiteGroup(
+  $where: WebsiteGroupWhereInput
+  $orderBy: [WebsiteGroupOrderByWithRelationInput!]
+  $cursor: WebsiteGroupWhereUniqueInput
+  $skip: Int
+  $take: Int
+) {
+  findManyWebsiteGroup(where: $where, orderBy: $orderBy, cursor: $cursor, skip: $skip, take: $take) {
+    ...WebsiteGroup
+  }
+}
+
+query findManyWebsiteGroupCount(
+  $where: WebsiteGroupWhereInput
+  $orderBy: [WebsiteGroupOrderByWithRelationInput!]
+  $cursor: WebsiteGroupWhereUniqueInput
+  $skip: Int
+  $take: Int
+) {
+  findManyWebsiteGroupCount(where: $where, orderBy: $orderBy, cursor: $cursor, skip: $skip, take: $take)
+}
+
+mutation createOneWebsiteGroup($data: WebsiteGroupCreateInput!) {
+  createOneWebsiteGroup(data: $data) {
+    ...WebsiteGroup
+  }
+}
+
+mutation updateOneWebsiteGroup($where: WebsiteGroupWhereUniqueInput!, $data: WebsiteGroupUpdateInput!) {
+  updateOneWebsiteGroup(where: $where, data: $data) {
+    ...WebsiteGroup
+  }
+}
+
+mutation deleteOneWebsiteGroup($where: WebsiteGroupWhereUniqueInput!) {
+  deleteOneWebsiteGroup(where: $where) {
+    ...WebsiteGroup
+  }
+}
+
+mutation deleteManyWebsiteGroup($where: WebsiteGroupWhereInput) {
+  deleteManyWebsiteGroup(where: $where) {
+    count
+  }
+}
+
+mutation updateManyWebsiteGroup($where: WebsiteGroupWhereInput, $data: WebsiteGroupUpdateManyMutationInput!) {
+  updateManyWebsiteGroup(where: $where, data: $data) {
+    count
+  }
+}

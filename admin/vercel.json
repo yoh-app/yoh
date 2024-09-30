@@ -1,0 +1,12 @@
+{
+  "crons": [
+    {
+      "path": "/admin/src/server/cron/orderCron",
+      "schedule": "*/4 * * * *"
+    },
+    {
+      "path": "/admin/src/server/cron/productAddressCron",
+      "schedule": "*/2 * * * *"
+    }
+  ]
+}

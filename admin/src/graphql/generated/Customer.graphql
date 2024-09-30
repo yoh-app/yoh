@@ -1,0 +1,85 @@
+fragment CustomerFields on Customer {
+  createdAt
+  deletedAt
+  deleted
+  updatedAt
+  email
+  id
+  imageObj
+  name
+  note
+  userId
+  walletAddress
+  websiteId
+}
+
+fragment Customer on Customer {
+  ...CustomerFields
+  affiliate {
+    ...AffiliateFields
+  }
+  user {
+    ...UserFields
+  }
+  website {
+    ...WebsiteFields
+  }
+}
+
+query findUniqueCustomer($where: CustomerWhereUniqueInput!) {
+  findUniqueCustomer(where: $where) {
+    ...Customer
+  }
+}
+
+query findManyCustomer(
+  $where: CustomerWhereInput
+  $orderBy: [CustomerOrderByWithRelationInput!]
+  $cursor: CustomerWhereUniqueInput
+  $skip: Int
+  $take: Int
+) {
+  findManyCustomer(where: $where, orderBy: $orderBy, cursor: $cursor, skip: $skip, take: $take) {
+    ...Customer
+  }
+}
+
+query findManyCustomerCount(
+  $where: CustomerWhereInput
+  $orderBy: [CustomerOrderByWithRelationInput!]
+  $cursor: CustomerWhereUniqueInput
+  $skip: Int
+  $take: Int
+) {
+  findManyCustomerCount(where: $where, orderBy: $orderBy, cursor: $cursor, skip: $skip, take: $take)
+}
+
+mutation createOneCustomer($data: CustomerCreateInput!) {
+  createOneCustomer(data: $data) {
+    ...Customer
+  }
+}
+
+mutation updateOneCustomer($where: CustomerWhereUniqueInput!, $data: CustomerUpdateInput!) {
+  updateOneCustomer(where: $where, data: $data) {
+    ...Customer
+  }
+}
+
+mutation deleteOneCustomer($where: CustomerWhereUniqueInput!) {
+  deleteOneCustomer(where: $where) {
+    ...Customer
+  }
+}
+
+mutation deleteManyCustomer($where: CustomerWhereInput) {
+  deleteManyCustomer(where: $where) {
+    count
+  }
+}
+
+mutation updateManyCustomer($where: CustomerWhereInput, $data: CustomerUpdateManyMutationInput!) {
+  updateManyCustomer(where: $where, data: $data) {
+    count
+  }
+}

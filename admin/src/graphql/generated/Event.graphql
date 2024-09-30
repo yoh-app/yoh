@@ -1,0 +1,123 @@
+fragment EventFields on Event {
+  createdAt
+  deletedAt
+  deleted
+  updatedAt
+  active
+  chain
+  commissionFee
+  content
+  contractAddress
+  description
+  endDate
+  endTime
+  eventEndTime
+  eventStartTime
+  externalNftChain
+  externalNftContractAddress
+  externalUrl
+  gallery
+  hasLocation
+  id
+  imageObj
+  isExternalNft
+  locationAddress
+  locationLat
+  locationLng
+  maxOrderPerUser
+  maxQuantity
+  name
+  payWithUSD
+  price
+  productType
+  quantity
+  quantitySold
+  royaltyBps
+  royaltyFee
+  saleEnabled
+  salePrice
+  slug
+  startDate
+  startTime
+  telegramApiToken
+  telegramBotId
+  transactionHash
+  useCommission
+  useExternalNft
+  useMultipleDays
+  useNft
+  usePrice
+  useQuantity
+  useRoyalty
+  useStartTime
+  useUsd
+  useVariations
+  variationOptions
+  variations
+  websiteId
+}
+
+fragment Event on Event {
+  ...EventFields
+  website {
+    ...WebsiteFields
+  }
+}
+
+query findUniqueEvent($where: EventWhereUniqueInput!) {
+  findUniqueEvent(where: $where) {
+    ...Event
+  }
+}
+
+query findManyEvent(
+  $where: EventWhereInput
+  $orderBy: [EventOrderByWithRelationInput!]
+  $cursor: EventWhereUniqueInput
+  $skip: Int
+  $take: Int
+) {
+  findManyEvent(where: $where, orderBy: $orderBy, cursor: $cursor, skip: $skip, take: $take) {
+    ...Event
+  }
+}
+
+query findManyEventCount(
+  $where: EventWhereInput
+  $orderBy: [EventOrderByWithRelationInput!]
+  $cursor: EventWhereUniqueInput
+  $skip: Int
+  $take: Int
+) {
+  findManyEventCount(where: $where, orderBy: $orderBy, cursor: $cursor, skip: $skip, take: $take)
+}
+
+mutation createOneEvent($data: EventCreateInput!) {
+  createOneEvent(data: $data) {
+    ...Event
+  }
+}
+
+mutation updateOneEvent($where: EventWhereUniqueInput!, $data: EventUpdateInput!) {
+  updateOneEvent(where: $where, data: $data) {
+    ...Event
+  }
+}
+
+mutation deleteOneEvent($where: EventWhereUniqueInput!) {
+  deleteOneEvent(where: $where) {
+    ...Event
+  }
+}
+
+mutation deleteManyEvent($where: EventWhereInput) {
+  deleteManyEvent(where: $where) {
+    count
+  }
+}
+
+mutation updateManyEvent($where: EventWhereInput, $data: EventUpdateManyMutationInput!) {
+  updateManyEvent(where: $where, data: $data) {
+    count
+  }
+}

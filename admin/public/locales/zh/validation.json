@@ -1,0 +1,10 @@
+{
+  "validation-num-integer": "必須整數。",
+  "validation-string-max-length-40": "字數需少於40個字。",
+  "validation-string-max-length-200": "字數需少於200個字。",
+  "validation-string-alphanumeric": "限英文字母及數字。",
+  "validation-num-gte-0": "必須大於等於0",
+  "validation-num-lte-100": "必須小於等於100",
+  "validation-required": "不可空缺",
+  "validation-url": "請輸入正確的url地址格式"
+}

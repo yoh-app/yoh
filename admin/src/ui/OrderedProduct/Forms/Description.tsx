@@ -1,0 +1,76 @@
+const form = {
+  name: 'Description',
+  intl: {
+    titleId: '_Admin.Website._PageGroup.Order._Page.OrderedProduct._Form.Description._Title',
+    title: 'Description',
+    descriptionId: '_Admin.Website._PageGroup.Order._Page.OrderedProduct._Form.Description._Description',
+    description: 'Description Description',
+  },
+  app: null,
+  hideOn: null,
+  disableOn: null,
+  order: 1,
+  formFields: [
+    {
+      name: 'imageObj',
+      custom: null,
+      order: 1,
+      hideOn: null,
+      disableOn: null,
+      requiredOn: null,
+      fullWidth: true,
+      inlineEdit: null,
+      type: 'Json',
+      link: null,
+      defaultValue: null,
+      intl: {
+        titleId: '_Admin.Website._PageGroup.Order._Page.OrderedProduct._Form.Description._FormField.imageObj._Title',
+        title: 'imageObj',
+        descriptionId:
+          '_Admin.Website._PageGroup.Order._Page.OrderedProduct._Form.Description._FormField.imageObj._Description',
+        description: 'imageObj Description',
+      },
+    },
+    {
+      name: 'name',
+      custom: null,
+      order: 1,
+      hideOn: null,
+      disableOn: null,
+      requiredOn: null,
+      fullWidth: true,
+      inlineEdit: null,
+      type: 'String',
+      link: null,
+      defaultValue: null,
+      intl: {
+        titleId: '_Admin.Website._PageGroup.Order._Page.OrderedProduct._Form.Description._FormField.name._Title',
+        title: 'name',
+        descriptionId:
+          '_Admin.Website._PageGroup.Order._Page.OrderedProduct._Form.Description._FormField.name._Description',
+        description: 'name Description',
+      },
+    },
+    {
+      name: 'description',
+      custom: null,
+      order: 2,
+      hideOn: null,
+      disableOn: null,
+      requiredOn: null,
+      fullWidth: true,
+      inlineEdit: null,
+      type: 'String',
+      link: null,
+      defaultValue: null,
+      intl: {
+        titleId: '_Admin.Website._PageGroup.Order._Page.OrderedProduct._Form.Description._FormField.description._Title',
+        title: 'description',
+        descriptionId:
+          '_Admin.Website._PageGroup.Order._Page.OrderedProduct._Form.Description._FormField.description._Description',
+        description: 'description Description',
+      },
+    },
+  ],
+};
+export default form;

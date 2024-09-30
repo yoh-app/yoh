@@ -1,0 +1,8 @@
+{
+  "WebsiteAdmin.NotificationPage.pageTitle": "通知",
+  "WebsiteAdmin.NotificationPage.pageDescription": "查看網站的通知。",
+  "WebsiteAdmin.NotificationPage.list.titleNew": "未讀",
+  "WebsiteAdmin.NotificationPage.list.titleBefore": "已讀",
+  "WebsiteAdmin.NotificationPage.list.labelOrder": "訂單",
+  "WebsiteAdmin.NotificationPage.list.labelRequest": "廣告邀請"
+}

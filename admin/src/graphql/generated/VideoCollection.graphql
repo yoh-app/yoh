@@ -1,0 +1,77 @@
+fragment VideoCollectionFields on VideoCollection {
+  createdAt
+  deletedAt
+  deleted
+  updatedAt
+  active
+  description
+  displayTitle
+  id
+  name
+  websiteId
+}
+
+fragment VideoCollection on VideoCollection {
+  ...VideoCollectionFields
+  website {
+    ...WebsiteFields
+  }
+}
+
+query findUniqueVideoCollection($where: VideoCollectionWhereUniqueInput!) {
+  findUniqueVideoCollection(where: $where) {
+    ...VideoCollection
+  }
+}
+
+query findManyVideoCollection(
+  $where: VideoCollectionWhereInput
+  $orderBy: [VideoCollectionOrderByWithRelationInput!]
+  $cursor: VideoCollectionWhereUniqueInput
+  $skip: Int
+  $take: Int
+) {
+  findManyVideoCollection(where: $where, orderBy: $orderBy, cursor: $cursor, skip: $skip, take: $take) {
+    ...VideoCollection
+  }
+}
+
+query findManyVideoCollectionCount(
+  $where: VideoCollectionWhereInput
+  $orderBy: [VideoCollectionOrderByWithRelationInput!]
+  $cursor: VideoCollectionWhereUniqueInput
+  $skip: Int
+  $take: Int
+) {
+  findManyVideoCollectionCount(where: $where, orderBy: $orderBy, cursor: $cursor, skip: $skip, take: $take)
+}
+
+mutation createOneVideoCollection($data: VideoCollectionCreateInput!) {
+  createOneVideoCollection(data: $data) {
+    ...VideoCollection
+  }
+}
+
+mutation updateOneVideoCollection($where: VideoCollectionWhereUniqueInput!, $data: VideoCollectionUpdateInput!) {
+  updateOneVideoCollection(where: $where, data: $data) {
+    ...VideoCollection
+  }
+}
+
+mutation deleteOneVideoCollection($where: VideoCollectionWhereUniqueInput!) {
+  deleteOneVideoCollection(where: $where) {
+    ...VideoCollection
+  }
+}
+
+mutation deleteManyVideoCollection($where: VideoCollectionWhereInput) {
+  deleteManyVideoCollection(where: $where) {
+    count
+  }
+}
+
+mutation updateManyVideoCollection($where: VideoCollectionWhereInput, $data: VideoCollectionUpdateManyMutationInput!) {
+  updateManyVideoCollection(where: $where, data: $data) {
+    count
+  }
+}

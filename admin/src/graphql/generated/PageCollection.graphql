@@ -1,0 +1,77 @@
+fragment PageCollectionFields on PageCollection {
+  createdAt
+  deletedAt
+  deleted
+  updatedAt
+  active
+  description
+  displayTitle
+  id
+  name
+  websiteId
+}
+
+fragment PageCollection on PageCollection {
+  ...PageCollectionFields
+  website {
+    ...WebsiteFields
+  }
+}
+
+query findUniquePageCollection($where: PageCollectionWhereUniqueInput!) {
+  findUniquePageCollection(where: $where) {
+    ...PageCollection
+  }
+}
+
+query findManyPageCollection(
+  $where: PageCollectionWhereInput
+  $orderBy: [PageCollectionOrderByWithRelationInput!]
+  $cursor: PageCollectionWhereUniqueInput
+  $skip: Int
+  $take: Int
+) {
+  findManyPageCollection(where: $where, orderBy: $orderBy, cursor: $cursor, skip: $skip, take: $take) {
+    ...PageCollection
+  }
+}
+
+query findManyPageCollectionCount(
+  $where: PageCollectionWhereInput
+  $orderBy: [PageCollectionOrderByWithRelationInput!]
+  $cursor: PageCollectionWhereUniqueInput
+  $skip: Int
+  $take: Int
+) {
+  findManyPageCollectionCount(where: $where, orderBy: $orderBy, cursor: $cursor, skip: $skip, take: $take)
+}
+
+mutation createOnePageCollection($data: PageCollectionCreateInput!) {
+  createOnePageCollection(data: $data) {
+    ...PageCollection
+  }
+}
+
+mutation updateOnePageCollection($where: PageCollectionWhereUniqueInput!, $data: PageCollectionUpdateInput!) {
+  updateOnePageCollection(where: $where, data: $data) {
+    ...PageCollection
+  }
+}
+
+mutation deleteOnePageCollection($where: PageCollectionWhereUniqueInput!) {
+  deleteOnePageCollection(where: $where) {
+    ...PageCollection
+  }
+}
+
+mutation deleteManyPageCollection($where: PageCollectionWhereInput) {
+  deleteManyPageCollection(where: $where) {
+    count
+  }
+}
+
+mutation updateManyPageCollection($where: PageCollectionWhereInput, $data: PageCollectionUpdateManyMutationInput!) {
+  updateManyPageCollection(where: $where, data: $data) {
+    count
+  }
+}

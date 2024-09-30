@@ -1,0 +1,80 @@
+fragment OrganizationFields on Organization {
+  createdAt
+  deletedAt
+  deleted
+  updatedAt
+  description
+  id
+  logoObj
+  name
+  slug
+  telegramApiToken
+  telegramBotId
+  userId
+  walletAddress
+}
+
+fragment Organization on Organization {
+  ...OrganizationFields
+  user {
+    ...UserFields
+  }
+}
+
+query findUniqueOrganization($where: OrganizationWhereUniqueInput!) {
+  findUniqueOrganization(where: $where) {
+    ...Organization
+  }
+}
+
+query findManyOrganization(
+  $where: OrganizationWhereInput
+  $orderBy: [OrganizationOrderByWithRelationInput!]
+  $cursor: OrganizationWhereUniqueInput
+  $skip: Int
+  $take: Int
+) {
+  findManyOrganization(where: $where, orderBy: $orderBy, cursor: $cursor, skip: $skip, take: $take) {
+    ...Organization
+  }
+}
+
+query findManyOrganizationCount(
+  $where: OrganizationWhereInput
+  $orderBy: [OrganizationOrderByWithRelationInput!]
+  $cursor: OrganizationWhereUniqueInput
+  $skip: Int
+  $take: Int
+) {
+  findManyOrganizationCount(where: $where, orderBy: $orderBy, cursor: $cursor, skip: $skip, take: $take)
+}
+
+mutation createOneOrganization($data: OrganizationCreateInput!) {
+  createOneOrganization(data: $data) {
+    ...Organization
+  }
+}
+
+mutation updateOneOrganization($where: OrganizationWhereUniqueInput!, $data: OrganizationUpdateInput!) {
+  updateOneOrganization(where: $where, data: $data) {
+    ...Organization
+  }
+}
+
+mutation deleteOneOrganization($where: OrganizationWhereUniqueInput!) {
+  deleteOneOrganization(where: $where) {
+    ...Organization
+  }
+}
+
+mutation deleteManyOrganization($where: OrganizationWhereInput) {
+  deleteManyOrganization(where: $where) {
+    count
+  }
+}
+
+mutation updateManyOrganization($where: OrganizationWhereInput, $data: OrganizationUpdateManyMutationInput!) {
+  updateManyOrganization(where: $where, data: $data) {
+    count
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "WebsiteAdmin.NotificationPage.pageTitle": "Notification",
+  "WebsiteAdmin.NotificationPage.pageDescription": "View all notifications on the website.",
+  "WebsiteAdmin.NotificationPage.list.titleNew": "New",
+  "WebsiteAdmin.NotificationPage.list.titleBefore": "Before",
+  "WebsiteAdmin.NotificationPage.list.labelOrder": "Order",
+  "WebsiteAdmin.NotificationPage.list.labelRequest": "Request"
+}

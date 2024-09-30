@@ -1,0 +1,77 @@
+fragment UserFields on User {
+  adminFilters
+  createdAt
+  deletedAt
+  deleted
+  updatedAt
+  email
+  id
+  imageObj
+  name
+  password
+  stripeAccountId
+  stripeCustomerId
+  telegramUserId
+}
+
+fragment User on User {
+  ...UserFields
+}
+
+query findUniqueUser($where: UserWhereUniqueInput!) {
+  findUniqueUser(where: $where) {
+    ...User
+  }
+}
+
+query findManyUser(
+  $where: UserWhereInput
+  $orderBy: [UserOrderByWithRelationInput!]
+  $cursor: UserWhereUniqueInput
+  $skip: Int
+  $take: Int
+) {
+  findManyUser(where: $where, orderBy: $orderBy, cursor: $cursor, skip: $skip, take: $take) {
+    ...User
+  }
+}
+
+query findManyUserCount(
+  $where: UserWhereInput
+  $orderBy: [UserOrderByWithRelationInput!]
+  $cursor: UserWhereUniqueInput
+  $skip: Int
+  $take: Int
+) {
+  findManyUserCount(where: $where, orderBy: $orderBy, cursor: $cursor, skip: $skip, take: $take)
+}
+
+mutation createOneUser($data: UserCreateInput!) {
+  createOneUser(data: $data) {
+    ...User
+  }
+}
+
+mutation updateOneUser($where: UserWhereUniqueInput!, $data: UserUpdateInput!) {
+  updateOneUser(where: $where, data: $data) {
+    ...User
+  }
+}
+
+mutation deleteOneUser($where: UserWhereUniqueInput!) {
+  deleteOneUser(where: $where) {
+    ...User
+  }
+}
+
+mutation deleteManyUser($where: UserWhereInput) {
+  deleteManyUser(where: $where) {
+    count
+  }
+}
+
+mutation updateManyUser($where: UserWhereInput, $data: UserUpdateManyMutationInput!) {
+  updateManyUser(where: $where, data: $data) {
+    count
+  }
+}

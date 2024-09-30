@@ -1,0 +1,82 @@
+fragment MarketingLocationFields on MarketingLocation {
+  createdAt
+  deletedAt
+  deleted
+  updatedAt
+  description
+  id
+  imageObj
+  locationAddress
+  locationLat
+  locationLng
+  name
+  websiteId
+}
+
+fragment MarketingLocation on MarketingLocation {
+  ...MarketingLocationFields
+  website {
+    ...WebsiteFields
+  }
+}
+
+query findUniqueMarketingLocation($where: MarketingLocationWhereUniqueInput!) {
+  findUniqueMarketingLocation(where: $where) {
+    ...MarketingLocation
+  }
+}
+
+query findManyMarketingLocation(
+  $where: MarketingLocationWhereInput
+  $orderBy: [MarketingLocationOrderByWithRelationInput!]
+  $cursor: MarketingLocationWhereUniqueInput
+  $skip: Int
+  $take: Int
+) {
+  findManyMarketingLocation(where: $where, orderBy: $orderBy, cursor: $cursor, skip: $skip, take: $take) {
+    ...MarketingLocation
+  }
+}
+
+query findManyMarketingLocationCount(
+  $where: MarketingLocationWhereInput
+  $orderBy: [MarketingLocationOrderByWithRelationInput!]
+  $cursor: MarketingLocationWhereUniqueInput
+  $skip: Int
+  $take: Int
+) {
+  findManyMarketingLocationCount(where: $where, orderBy: $orderBy, cursor: $cursor, skip: $skip, take: $take)
+}
+
+mutation createOneMarketingLocation($data: MarketingLocationCreateInput!) {
+  createOneMarketingLocation(data: $data) {
+    ...MarketingLocation
+  }
+}
+
+mutation updateOneMarketingLocation($where: MarketingLocationWhereUniqueInput!, $data: MarketingLocationUpdateInput!) {
+  updateOneMarketingLocation(where: $where, data: $data) {
+    ...MarketingLocation
+  }
+}
+
+mutation deleteOneMarketingLocation($where: MarketingLocationWhereUniqueInput!) {
+  deleteOneMarketingLocation(where: $where) {
+    ...MarketingLocation
+  }
+}
+
+mutation deleteManyMarketingLocation($where: MarketingLocationWhereInput) {
+  deleteManyMarketingLocation(where: $where) {
+    count
+  }
+}
+
+mutation updateManyMarketingLocation(
+  $where: MarketingLocationWhereInput
+  $data: MarketingLocationUpdateManyMutationInput!
+) {
+  updateManyMarketingLocation(where: $where, data: $data) {
+    count
+  }
+}

@@ -1,0 +1,202 @@
+[
+  {
+    "model": "ProductGroup",
+    "parent": "Website",
+    "name": "Website.ProductGroup"
+  },
+  {
+    "model": "Affiliate",
+    "parent": "Website",
+    "name": "Website.Affiliate"
+  },
+  {
+    "model": "Coupon",
+    "parent": "Website",
+    "name": "Website.Coupon"
+  },
+  {
+    "model": "Social",
+    "parent": "Website",
+    "name": "Website.Social"
+  },
+  {
+    "model": "Shipping",
+    "parent": "Website",
+    "name": "Website.Shipping"
+  },
+  {
+    "model": "PageView",
+    "parent": "Page",
+    "name": "Page.PageView"
+  },
+  {
+    "model": "RequestClick",
+    "parent": "Page",
+    "name": "Page.RequestClick"
+  },
+  {
+    "model": "Collection",
+    "parent": "Website",
+    "name": "Website.Collection"
+  },
+  {
+    "model": "PageCollection",
+    "parent": "Website",
+    "name": "Website.PageCollection"
+  },
+  {
+    "model": "ProductCollection",
+    "parent": "Website",
+    "name": "Website.ProductCollection"
+  },
+  {
+    "model": "Event",
+    "parent": "Website",
+    "name": "Website.Event"
+  },
+  {
+    "model": "Agenda",
+    "parent": "Event",
+    "name": "Event.Agenda"
+  },
+  {
+    "model": "Speaker",
+    "parent": "Event",
+    "name": "Event.Speaker"
+  },
+  {
+    "model": "EventGroup",
+    "parent": "Website",
+    "name": "Website.EventGroup"
+  },
+  {
+    "model": "Link",
+    "parent": "User",
+    "name": "User.Link"
+  },
+  {
+    "model": "Category",
+    "parent": "Website",
+    "name": "Website.Category"
+  },
+  {
+    "model": "User",
+    "parent": null,
+    "name": "null.User"
+  },
+  {
+    "model": "Request",
+    "parent": "Page",
+    "name": "Page.Request"
+  },
+  {
+    "model": "Attribute",
+    "parent": "Website",
+    "name": "Website.Attribute"
+  },
+  {
+    "model": "MarketingLocation",
+    "parent": "Website",
+    "name": "Website.MarketingLocation"
+  },
+  {
+    "model": "Page",
+    "parent": "Website",
+    "name": "Website.Page"
+  },
+  {
+    "model": "WebsiteGroup",
+    "parent": "Website",
+    "name": "Website.WebsiteGroup"
+  },
+  {
+    "model": "Item",
+    "parent": "Page",
+    "name": "Page.Item"
+  },
+  {
+    "model": "Product",
+    "parent": "Website",
+    "name": "Website.Product"
+  },
+  {
+    "model": "Document",
+    "parent": "User",
+    "name": "User.Document"
+  },
+  {
+    "model": "Picture",
+    "parent": "User",
+    "name": "User.Picture"
+  },
+  {
+    "model": "Redeemable",
+    "parent": "User",
+    "name": "User.Redeemable"
+  },
+  {
+    "model": "Embed",
+    "parent": "User",
+    "name": "User.Embed"
+  },
+  {
+    "model": "VideoCollection",
+    "parent": "Website",
+    "name": "Website.VideoCollection"
+  },
+  {
+    "model": "Video",
+    "parent": "Website",
+    "name": "Website.Video"
+  },
+  {
+    "model": "Audio",
+    "parent": "User",
+    "name": "User.Audio"
+  },
+  {
+    "model": "Attachment",
+    "parent": "User",
+    "name": "User.Attachment"
+  },
+  {
+    "model": "Order",
+    "parent": "Website",
+    "name": "Website.Order"
+  },
+  {
+    "model": "Customer",
+    "parent": "Website",
+    "name": "Website.Customer"
+  },
+  {
+    "model": "Website",
+    "parent": "User",
+    "name": "User.Website"
+  },
+  {
+    "model": "Block",
+    "parent": "User",
+    "name": "User.Block"
+  },
+  {
+    "model": "OrderedProduct",
+    "parent": "Order",
+    "name": "Order.OrderedProduct"
+  },
+  {
+    "model": "Trait",
+    "parent": "Product",
+    "name": "Product.Trait"
+  },
+  {
+    "model": "Value",
+    "parent": "Trait",
+    "name": "Trait.Value"
+  },
+  {
+    "model": "Notification",
+    "parent": "Website",
+    "name": "Website.Notification"
+  }
+]

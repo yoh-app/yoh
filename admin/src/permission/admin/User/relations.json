@@ -1,0 +1,42 @@
+[
+  {
+    "model": "User",
+    "parent": null,
+    "name": "undefined.User"
+  },
+  {
+    "model": "Website",
+    "parent": "User",
+    "name": "User.Website"
+  },
+  {
+    "model": "Order",
+    "parent": "Customer",
+    "name": "Customer.Order"
+  },
+  {
+    "model": "Customer",
+    "parent": "User",
+    "name": "User.Customer"
+  },
+  {
+    "model": "Request",
+    "parent": "Customer",
+    "name": "Customer.Request"
+  },
+  {
+    "model": "OrderedProduct",
+    "parent": "Order",
+    "name": "Order.OrderedProduct"
+  },
+  {
+    "model": "Attachment",
+    "parent": "User",
+    "name": "User.Attachment"
+  },
+  {
+    "model": "Notification",
+    "parent": "User",
+    "name": "User.Notification"
+  }
+]

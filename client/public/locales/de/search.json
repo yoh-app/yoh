@@ -1,0 +1,12 @@
+{
+  "search-head": "Search",
+  "search-for": "Search results for '%input'",
+  "search-tab-all": "All",
+  "search-tab-products": "Products",
+  "search-tab-links": "Links",
+  "search-tab-pages": "Pages",
+  "search-chip-product": "Product",
+  "search-chip-link": "Link",
+  "search-chip-page": "Page",
+  "search-empty": "No available data"
+}

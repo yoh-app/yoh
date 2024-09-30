@@ -1,0 +1,47 @@
+[
+  {
+    "createdAt": "2022-12-09T08:51:40.924Z",
+    "deletedAt": null,
+    "deleted": false,
+    "updatedAt": "2022-12-09T08:51:40.925Z",
+    "adminId": "clbg9raue79473wkvpy3ulrhq5",
+    "currency": "USD",
+    "currencyCode": null,
+    "id": "clbg9raws79559wkvps5wxwj9k",
+    "interval": "month",
+    "name": "Community",
+    "price": 0,
+    "stripePriceId": "prod_IXVAqfloIZ9cvS",
+    "modelLimits": []
+  },
+  {
+    "createdAt": "2022-12-09T08:51:40.957Z",
+    "deletedAt": null,
+    "deleted": false,
+    "updatedAt": "2022-12-09T08:51:40.958Z",
+    "adminId": "clbg9raue79473wkvpy3ulrhq5",
+    "currency": "USD",
+    "currencyCode": null,
+    "id": "clbg9raxp79581wkvp8ubxfo20",
+    "interval": "month",
+    "name": "Private",
+    "price": 20,
+    "stripePriceId": "price_1HwQ9TIKeSKTkSHCK9HnokRW",
+    "modelLimits": []
+  },
+  {
+    "createdAt": "2022-12-09T08:51:40.984Z",
+    "deletedAt": null,
+    "deleted": false,
+    "updatedAt": "2022-12-09T08:51:40.985Z",
+    "adminId": "clbg9raue79473wkvpy3ulrhq5",
+    "currency": "USD",
+    "currencyCode": null,
+    "id": "clbg9rayg79603wkvp821qxth0",
+    "interval": "month",
+    "name": "Super",
+    "price": 30,
+    "stripePriceId": "price_1IvEdTIKeSKTkSHCkfgXYwIx",
+    "modelLimits": []
+  }
+]

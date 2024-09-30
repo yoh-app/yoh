@@ -1,0 +1,62 @@
+[
+  {
+    "model": "User",
+    "parent": null,
+    "name": "null.User"
+  },
+  {
+    "model": "Request",
+    "parent": "Nft",
+    "name": "Nft.Request"
+  },
+  {
+    "model": "Coupon",
+    "parent": "Nft",
+    "name": "Nft.Coupon"
+  },
+  {
+    "model": "Redeemable",
+    "parent": "Nft",
+    "name": "Nft.Redeemable"
+  },
+  {
+    "model": "RedeemRecord",
+    "parent": "Redeemable",
+    "name": "Redeemable.RedeemRecord"
+  },
+  {
+    "model": "RedeemRecorOrder",
+    "parent": "Nft",
+    "name": "Nft.RedeemRecorOrder"
+  },
+  {
+    "model": "Attachment",
+    "parent": "Nft",
+    "name": "Nft.Attachment"
+  },
+  {
+    "model": "Order",
+    "parent": "Nft",
+    "name": "Nft.Order"
+  },
+  {
+    "model": "Customer",
+    "parent": "Nft",
+    "name": "Nft.Customer"
+  },
+  {
+    "model": "Nft",
+    "parent": "User",
+    "name": "User.Nft"
+  },
+  {
+    "model": "OrderedNft",
+    "parent": "Order",
+    "name": "Order.OrderedNft"
+  },
+  {
+    "model": "Notification",
+    "parent": "Nft",
+    "name": "Nft.Notification"
+  }
+]

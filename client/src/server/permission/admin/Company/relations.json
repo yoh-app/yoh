@@ -1,0 +1,132 @@
+[
+  {
+    "model": "Staff",
+    "parent": "Company",
+    "name": "Company.Staff"
+  },
+  {
+    "model": "Experience",
+    "parent": "Company",
+    "name": "Company.Experience"
+  },
+  {
+    "model": "PageView",
+    "parent": "Page",
+    "name": "Page.PageView"
+  },
+  {
+    "model": "RequestClick",
+    "parent": "Page",
+    "name": "Page.RequestClick"
+  },
+  {
+    "model": "Department",
+    "parent": "Company",
+    "name": "Company.Department"
+  },
+  {
+    "model": "DepartmentCollection",
+    "parent": "Company",
+    "name": "Company.DepartmentCollection"
+  },
+  {
+    "model": "Job",
+    "parent": "Company",
+    "name": "Company.Job"
+  },
+  {
+    "model": "JobCollection",
+    "parent": "Company",
+    "name": "Company.JobCollection"
+  },
+  {
+    "model": "Application",
+    "parent": "Company",
+    "name": "Company.Application"
+  },
+  {
+    "model": "PageGroup",
+    "parent": "Company",
+    "name": "Company.PageGroup"
+  },
+  {
+    "model": "ProductCollection",
+    "parent": "Company",
+    "name": "Company.ProductCollection"
+  },
+  {
+    "model": "Link",
+    "parent": "User",
+    "name": "User.Link"
+  },
+  {
+    "model": "Category",
+    "parent": "Company",
+    "name": "Company.Category"
+  },
+  {
+    "model": "User",
+    "parent": null,
+    "name": "null.User"
+  },
+  {
+    "model": "Request",
+    "parent": "Page",
+    "name": "Page.Request"
+  },
+  {
+    "model": "Attribute",
+    "parent": "Company",
+    "name": "Company.Attribute"
+  },
+  {
+    "model": "Page",
+    "parent": "Company",
+    "name": "Company.Page"
+  },
+  {
+    "model": "Coupon",
+    "parent": "Company",
+    "name": "Company.Coupon"
+  },
+  {
+    "model": "Attachment",
+    "parent": "User",
+    "name": "User.Attachment"
+  },
+  {
+    "model": "Order",
+    "parent": "Company",
+    "name": "Company.Order"
+  },
+  {
+    "model": "Customer",
+    "parent": "Company",
+    "name": "Company.Customer"
+  },
+  {
+    "model": "Company",
+    "parent": "User",
+    "name": "User.Company"
+  },
+  {
+    "model": "OrderedProduct",
+    "parent": "Order",
+    "name": "Order.OrderedProduct"
+  },
+  {
+    "model": "Trait",
+    "parent": "Product",
+    "name": "Product.Trait"
+  },
+  {
+    "model": "Value",
+    "parent": "Trait",
+    "name": "Trait.Value"
+  },
+  {
+    "model": "Notification",
+    "parent": "Company",
+    "name": "Company.Notification"
+  }
+]

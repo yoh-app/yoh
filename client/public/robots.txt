@@ -1,0 +1,8 @@
+Sitemap: https://*.yoh.app/api/pages-sitemap
+Sitemap: https://*.yoh.app/api/products-sitemap
+Sitemap: https://*.yoh.app/api/sitemap
+
+User-agent: *
+Allow: /
+
+Disallow: /api/*

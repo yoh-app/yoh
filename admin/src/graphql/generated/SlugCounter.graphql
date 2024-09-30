@@ -1,0 +1,73 @@
+fragment SlugCounterFields on SlugCounter {
+  counter
+  createdAt
+  deleted
+  deletedAt
+  id
+  model
+  slug
+  title
+  updatedAt
+}
+
+fragment SlugCounter on SlugCounter {
+  ...SlugCounterFields
+}
+
+query findUniqueSlugCounter($where: SlugCounterWhereUniqueInput!) {
+  findUniqueSlugCounter(where: $where) {
+    ...SlugCounter
+  }
+}
+
+query findManySlugCounter(
+  $where: SlugCounterWhereInput
+  $orderBy: [SlugCounterOrderByWithRelationInput!]
+  $cursor: SlugCounterWhereUniqueInput
+  $skip: Int
+  $take: Int
+) {
+  findManySlugCounter(where: $where, orderBy: $orderBy, cursor: $cursor, skip: $skip, take: $take) {
+    ...SlugCounter
+  }
+}
+
+query findManySlugCounterCount(
+  $where: SlugCounterWhereInput
+  $orderBy: [SlugCounterOrderByWithRelationInput!]
+  $cursor: SlugCounterWhereUniqueInput
+  $skip: Int
+  $take: Int
+) {
+  findManySlugCounterCount(where: $where, orderBy: $orderBy, cursor: $cursor, skip: $skip, take: $take)
+}
+
+mutation createOneSlugCounter($data: SlugCounterCreateInput!) {
+  createOneSlugCounter(data: $data) {
+    ...SlugCounter
+  }
+}
+
+mutation updateOneSlugCounter($where: SlugCounterWhereUniqueInput!, $data: SlugCounterUpdateInput!) {
+  updateOneSlugCounter(where: $where, data: $data) {
+    ...SlugCounter
+  }
+}
+
+mutation deleteOneSlugCounter($where: SlugCounterWhereUniqueInput!) {
+  deleteOneSlugCounter(where: $where) {
+    ...SlugCounter
+  }
+}
+
+mutation deleteManySlugCounter($where: SlugCounterWhereInput) {
+  deleteManySlugCounter(where: $where) {
+    count
+  }
+}
+
+mutation updateManySlugCounter($where: SlugCounterWhereInput, $data: SlugCounterUpdateManyMutationInput!) {
+  updateManySlugCounter(where: $where, data: $data) {
+    count
+  }
+}

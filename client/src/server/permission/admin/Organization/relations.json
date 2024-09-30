@@ -1,0 +1,217 @@
+[
+  {
+    "model": "User",
+    "parent": null,
+    "name": "null.User"
+  },
+  {
+    "model": "NftGroup",
+    "parent": "Organization",
+    "name": "Organization.NftGroup"
+  },
+  {
+    "model": "Order",
+    "parent": "Organization",
+    "name": "Organization.Order"
+  },
+  {
+    "model": "Customer",
+    "parent": "Organization",
+    "name": "Organization.Customer"
+  },
+  {
+    "model": "Organization",
+    "parent": "User",
+    "name": "User.Organization"
+  },
+  {
+    "model": "OrderedNft",
+    "parent": "Order",
+    "name": "Order.OrderedNft"
+  },
+  {
+    "model": "OrderedEvent",
+    "parent": "Order",
+    "name": "Order.OrderedEvent"
+  },
+  {
+    "model": "JobGroup",
+    "parent": "Organization",
+    "name": "Organization.JobGroup"
+  },
+  {
+    "model": "ProductGroup",
+    "parent": "Organization",
+    "name": "Organization.ProductGroup"
+  },
+  {
+    "model": "NftRedeemable",
+    "parent": "Organization",
+    "name": "Organization.NftRedeemable"
+  },
+  {
+    "model": "Job",
+    "parent": "Organization",
+    "name": "Organization.Job"
+  },
+  {
+    "model": "Application",
+    "parent": "Organization",
+    "name": "Organization.Application"
+  },
+  {
+    "model": "Department",
+    "parent": "Organization",
+    "name": "Organization.Department"
+  },
+  {
+    "model": "Experience",
+    "parent": "Organization",
+    "name": "Organization.Experience"
+  },
+  {
+    "model": "ClaimedCoupon",
+    "parent": "Organization",
+    "name": "Organization.ClaimedCoupon"
+  },
+  {
+    "model": "NftRedeemRecordOrder",
+    "parent": "Organization",
+    "name": "Organization.NftRedeemRecordOrder"
+  },
+  {
+    "model": "NftRedeemRecord",
+    "parent": "Organization",
+    "name": "Organization.NftRedeemRecord"
+  },
+  {
+    "model": "NftRedeemRecordOrder",
+    "parent": "Organization",
+    "name": "Organization.NftRedeemRecordOrder"
+  },
+  {
+    "model": "AttachmentGroup",
+    "parent": "Organization",
+    "name": "Organization.AttachmentGroup"
+  },
+  {
+    "model": "BookingGroup",
+    "parent": "Organization",
+    "name": "Organization.BookingGroup"
+  },
+  {
+    "model": "EventGroup",
+    "parent": "Organization",
+    "name": "Organization.EventGroup"
+  },
+  {
+    "model": "Item",
+    "parent": "Organization",
+    "name": "Organization.Item"
+  },
+  {
+    "model": "Booking",
+    "parent": "Organization",
+    "name": "Organization.Booking"
+  },
+  {
+    "model": "Product",
+    "parent": "Organization",
+    "name": "Organization.Product"
+  },
+  {
+    "model": "Reservation",
+    "parent": "Organization",
+    "name": "Organization.Reservation"
+  },
+  {
+    "model": "Advertisement",
+    "parent": "Organization",
+    "name": "Organization.Advertisement"
+  },
+  {
+    "model": "MembershipCard",
+    "parent": "Organization",
+    "name": "Organization.MembershipCard"
+  },
+  {
+    "model": "Page",
+    "parent": "Organization",
+    "name": "Organization.Page"
+  },
+  {
+    "model": "Trait",
+    "parent": "Nft",
+    "name": "Nft.Trait"
+  },
+  {
+    "model": "TraitValue",
+    "parent": "Trait",
+    "name": "Trait.TraitValue"
+  },
+  {
+    "model": "Nft",
+    "parent": "Organization",
+    "name": "Organization.Nft"
+  },
+  {
+    "model": "Event",
+    "parent": "Organization",
+    "name": "Organization.Event"
+  },
+  {
+    "model": "Agenda",
+    "parent": "Event",
+    "name": "Event.Agenda"
+  },
+  {
+    "model": "Speaker",
+    "parent": "Event",
+    "name": "Event.Speaker"
+  },
+  {
+    "model": "Coupon",
+    "parent": "Organization",
+    "name": "Organization.Coupon"
+  },
+  {
+    "model": "Redeemable",
+    "parent": "Organization",
+    "name": "Organization.Redeemable"
+  },
+  {
+    "model": "RedeemRecord",
+    "parent": "Redeemable",
+    "name": "Redeemable.RedeemRecord"
+  },
+  {
+    "model": "RedeemRecorOrder",
+    "parent": "Organization",
+    "name": "Organization.RedeemRecorOrder"
+  },
+  {
+    "model": "Attachment",
+    "parent": "Organization",
+    "name": "Organization.Attachment"
+  },
+  {
+    "model": "Attribute",
+    "parent": "Organization",
+    "name": "Organization.Attribute"
+  },
+  {
+    "model": "AttachmentCollection",
+    "parent": "Organization",
+    "name": "Organization.AttachmentCollection"
+  },
+  {
+    "model": "PageGroup",
+    "parent": "Organization",
+    "name": "Organization.PageGroup"
+  },
+  {
+    "model": "Notification",
+    "parent": "Organization",
+    "name": "Organization.Notification"
+  }
+]

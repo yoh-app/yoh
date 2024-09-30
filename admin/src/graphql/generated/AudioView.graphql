@@ -1,0 +1,74 @@
+fragment AudioViewFields on AudioView {
+  createdAt
+  deletedAt
+  deleted
+  updatedAt
+  audioId
+  id
+  ip
+}
+
+fragment AudioView on AudioView {
+  ...AudioViewFields
+  audio {
+    ...AudioFields
+  }
+}
+
+query findUniqueAudioView($where: AudioViewWhereUniqueInput!) {
+  findUniqueAudioView(where: $where) {
+    ...AudioView
+  }
+}
+
+query findManyAudioView(
+  $where: AudioViewWhereInput
+  $orderBy: [AudioViewOrderByWithRelationInput!]
+  $cursor: AudioViewWhereUniqueInput
+  $skip: Int
+  $take: Int
+) {
+  findManyAudioView(where: $where, orderBy: $orderBy, cursor: $cursor, skip: $skip, take: $take) {
+    ...AudioView
+  }
+}
+
+query findManyAudioViewCount(
+  $where: AudioViewWhereInput
+  $orderBy: [AudioViewOrderByWithRelationInput!]
+  $cursor: AudioViewWhereUniqueInput
+  $skip: Int
+  $take: Int
+) {
+  findManyAudioViewCount(where: $where, orderBy: $orderBy, cursor: $cursor, skip: $skip, take: $take)
+}
+
+mutation createOneAudioView($data: AudioViewCreateInput!) {
+  createOneAudioView(data: $data) {
+    ...AudioView
+  }
+}
+
+mutation updateOneAudioView($where: AudioViewWhereUniqueInput!, $data: AudioViewUpdateInput!) {
+  updateOneAudioView(where: $where, data: $data) {
+    ...AudioView
+  }
+}
+
+mutation deleteOneAudioView($where: AudioViewWhereUniqueInput!) {
+  deleteOneAudioView(where: $where) {
+    ...AudioView
+  }
+}
+
+mutation deleteManyAudioView($where: AudioViewWhereInput) {
+  deleteManyAudioView(where: $where) {
+    count
+  }
+}
+
+mutation updateManyAudioView($where: AudioViewWhereInput, $data: AudioViewUpdateManyMutationInput!) {
+  updateManyAudioView(where: $where, data: $data) {
+    count
+  }
+}

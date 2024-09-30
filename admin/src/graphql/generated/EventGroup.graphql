@@ -1,0 +1,80 @@
+fragment EventGroupFields on EventGroup {
+  createdAt
+  deletedAt
+  deleted
+  updatedAt
+  active
+  description
+  id
+  name
+  organizationId
+  websiteId
+}
+
+fragment EventGroup on EventGroup {
+  ...EventGroupFields
+  organization {
+    ...OrganizationFields
+  }
+  website {
+    ...WebsiteFields
+  }
+}
+
+query findUniqueEventGroup($where: EventGroupWhereUniqueInput!) {
+  findUniqueEventGroup(where: $where) {
+    ...EventGroup
+  }
+}
+
+query findManyEventGroup(
+  $where: EventGroupWhereInput
+  $orderBy: [EventGroupOrderByWithRelationInput!]
+  $cursor: EventGroupWhereUniqueInput
+  $skip: Int
+  $take: Int
+) {
+  findManyEventGroup(where: $where, orderBy: $orderBy, cursor: $cursor, skip: $skip, take: $take) {
+    ...EventGroup
+  }
+}
+
+query findManyEventGroupCount(
+  $where: EventGroupWhereInput
+  $orderBy: [EventGroupOrderByWithRelationInput!]
+  $cursor: EventGroupWhereUniqueInput
+  $skip: Int
+  $take: Int
+) {
+  findManyEventGroupCount(where: $where, orderBy: $orderBy, cursor: $cursor, skip: $skip, take: $take)
+}
+
+mutation createOneEventGroup($data: EventGroupCreateInput!) {
+  createOneEventGroup(data: $data) {
+    ...EventGroup
+  }
+}
+
+mutation updateOneEventGroup($where: EventGroupWhereUniqueInput!, $data: EventGroupUpdateInput!) {
+  updateOneEventGroup(where: $where, data: $data) {
+    ...EventGroup
+  }
+}
+
+mutation deleteOneEventGroup($where: EventGroupWhereUniqueInput!) {
+  deleteOneEventGroup(where: $where) {
+    ...EventGroup
+  }
+}
+
+mutation deleteManyEventGroup($where: EventGroupWhereInput) {
+  deleteManyEventGroup(where: $where) {
+    count
+  }
+}
+
+mutation updateManyEventGroup($where: EventGroupWhereInput, $data: EventGroupUpdateManyMutationInput!) {
+  updateManyEventGroup(where: $where, data: $data) {
+    count
+  }
+}

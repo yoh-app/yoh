@@ -1,0 +1,87 @@
+fragment AudioFields on Audio {
+  createdAt
+  deletedAt
+  deleted
+  updatedAt
+  active
+  audioObj
+  audioPreviewObj
+  content
+  description
+  externalUrl
+  id
+  imageObj
+  isExternalLink
+  isIndex
+  menu
+  name
+  navColor
+  password
+  slug
+  websiteId
+}
+
+fragment Audio on Audio {
+  ...AudioFields
+  website {
+    ...WebsiteFields
+  }
+}
+
+query findUniqueAudio($where: AudioWhereUniqueInput!) {
+  findUniqueAudio(where: $where) {
+    ...Audio
+  }
+}
+
+query findManyAudio(
+  $where: AudioWhereInput
+  $orderBy: [AudioOrderByWithRelationInput!]
+  $cursor: AudioWhereUniqueInput
+  $skip: Int
+  $take: Int
+) {
+  findManyAudio(where: $where, orderBy: $orderBy, cursor: $cursor, skip: $skip, take: $take) {
+    ...Audio
+  }
+}
+
+query findManyAudioCount(
+  $where: AudioWhereInput
+  $orderBy: [AudioOrderByWithRelationInput!]
+  $cursor: AudioWhereUniqueInput
+  $skip: Int
+  $take: Int
+) {
+  findManyAudioCount(where: $where, orderBy: $orderBy, cursor: $cursor, skip: $skip, take: $take)
+}
+
+mutation createOneAudio($data: AudioCreateInput!) {
+  createOneAudio(data: $data) {
+    ...Audio
+  }
+}
+
+mutation updateOneAudio($where: AudioWhereUniqueInput!, $data: AudioUpdateInput!) {
+  updateOneAudio(where: $where, data: $data) {
+    ...Audio
+  }
+}
+
+mutation deleteOneAudio($where: AudioWhereUniqueInput!) {
+  deleteOneAudio(where: $where) {
+    ...Audio
+  }
+}
+
+mutation deleteManyAudio($where: AudioWhereInput) {
+  deleteManyAudio(where: $where) {
+    count
+  }
+}
+
+mutation updateManyAudio($where: AudioWhereInput, $data: AudioUpdateManyMutationInput!) {
+  updateManyAudio(where: $where, data: $data) {
+    count
+  }
+}

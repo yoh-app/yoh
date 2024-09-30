@@ -1,0 +1,78 @@
+fragment ProductGroupFields on ProductGroup {
+  createdAt
+  deletedAt
+  deleted
+  updatedAt
+  id
+  name
+  organizationId
+  websiteId
+}
+
+fragment ProductGroup on ProductGroup {
+  ...ProductGroupFields
+  organization {
+    ...OrganizationFields
+  }
+  website {
+    ...WebsiteFields
+  }
+}
+
+query findUniqueProductGroup($where: ProductGroupWhereUniqueInput!) {
+  findUniqueProductGroup(where: $where) {
+    ...ProductGroup
+  }
+}
+
+query findManyProductGroup(
+  $where: ProductGroupWhereInput
+  $orderBy: [ProductGroupOrderByWithRelationInput!]
+  $cursor: ProductGroupWhereUniqueInput
+  $skip: Int
+  $take: Int
+) {
+  findManyProductGroup(where: $where, orderBy: $orderBy, cursor: $cursor, skip: $skip, take: $take) {
+    ...ProductGroup
+  }
+}
+
+query findManyProductGroupCount(
+  $where: ProductGroupWhereInput
+  $orderBy: [ProductGroupOrderByWithRelationInput!]
+  $cursor: ProductGroupWhereUniqueInput
+  $skip: Int
+  $take: Int
+) {
+  findManyProductGroupCount(where: $where, orderBy: $orderBy, cursor: $cursor, skip: $skip, take: $take)
+}
+
+mutation createOneProductGroup($data: ProductGroupCreateInput!) {
+  createOneProductGroup(data: $data) {
+    ...ProductGroup
+  }
+}
+
+mutation updateOneProductGroup($where: ProductGroupWhereUniqueInput!, $data: ProductGroupUpdateInput!) {
+  updateOneProductGroup(where: $where, data: $data) {
+    ...ProductGroup
+  }
+}
+
+mutation deleteOneProductGroup($where: ProductGroupWhereUniqueInput!) {
+  deleteOneProductGroup(where: $where) {
+    ...ProductGroup
+  }
+}
+
+mutation deleteManyProductGroup($where: ProductGroupWhereInput) {
+  deleteManyProductGroup(where: $where) {
+    count
+  }
+}
+
+mutation updateManyProductGroup($where: ProductGroupWhereInput, $data: ProductGroupUpdateManyMutationInput!) {
+  updateManyProductGroup(where: $where, data: $data) {
+    count
+  }
+}

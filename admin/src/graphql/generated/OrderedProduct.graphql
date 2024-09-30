@@ -1,0 +1,99 @@
+fragment OrderedProductFields on OrderedProduct {
+  createdAt
+  deletedAt
+  deleted
+  updatedAt
+  description
+  eventId
+  id
+  imageObj
+  minted
+  name
+  orderId
+  price
+  productId
+  productSlug
+  productType
+  productUrl
+  quantity
+  redeemedQuantity
+  slug
+  tokenId
+  total
+  transactionHash
+  variationId
+  variationName
+  variationOption
+  walletAddress
+}
+
+fragment OrderedProduct on OrderedProduct {
+  ...OrderedProductFields
+  event {
+    ...EventFields
+  }
+  order {
+    ...OrderFields
+  }
+  product {
+    ...ProductFields
+  }
+}
+
+query findUniqueOrderedProduct($where: OrderedProductWhereUniqueInput!) {
+  findUniqueOrderedProduct(where: $where) {
+    ...OrderedProduct
+  }
+}
+
+query findManyOrderedProduct(
+  $where: OrderedProductWhereInput
+  $orderBy: [OrderedProductOrderByWithRelationInput!]
+  $cursor: OrderedProductWhereUniqueInput
+  $skip: Int
+  $take: Int
+) {
+  findManyOrderedProduct(where: $where, orderBy: $orderBy, cursor: $cursor, skip: $skip, take: $take) {
+    ...OrderedProduct
+  }
+}
+
+query findManyOrderedProductCount(
+  $where: OrderedProductWhereInput
+  $orderBy: [OrderedProductOrderByWithRelationInput!]
+  $cursor: OrderedProductWhereUniqueInput
+  $skip: Int
+  $take: Int
+) {
+  findManyOrderedProductCount(where: $where, orderBy: $orderBy, cursor: $cursor, skip: $skip, take: $take)
+}
+
+mutation createOneOrderedProduct($data: OrderedProductCreateInput!) {
+  createOneOrderedProduct(data: $data) {
+    ...OrderedProduct
+  }
+}
+
+mutation updateOneOrderedProduct($where: OrderedProductWhereUniqueInput!, $data: OrderedProductUpdateInput!) {
+  updateOneOrderedProduct(where: $where, data: $data) {
+    ...OrderedProduct
+  }
+}
+
+mutation deleteOneOrderedProduct($where: OrderedProductWhereUniqueInput!) {
+  deleteOneOrderedProduct(where: $where) {
+    ...OrderedProduct
+  }
+}
+
+mutation deleteManyOrderedProduct($where: OrderedProductWhereInput) {
+  deleteManyOrderedProduct(where: $where) {
+    count
+  }
+}
+
+mutation updateManyOrderedProduct($where: OrderedProductWhereInput, $data: OrderedProductUpdateManyMutationInput!) {
+  updateManyOrderedProduct(where: $where, data: $data) {
+    count
+  }
+}

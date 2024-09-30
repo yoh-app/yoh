@@ -1,0 +1,10 @@
+{
+  "order-list-title": "全部訂單",
+  "order-list-description": "查看您的訂單紀錄，並可點選於右側查看訂單明細。",
+  "order-list-unselected": "請於全部訂單中點選想要查看的項目",
+  "order-list-empty": "目前沒有任何訂單紀錄",
+  "order-detail-title": "訂單詳情",
+  "order-detail-description": "查看訂單金額及購買商品內容。",
+  "order-complete-congratulation": "感謝購買，你的訂單已完成！",
+  "order-complete-number": "訂單編號"
+}

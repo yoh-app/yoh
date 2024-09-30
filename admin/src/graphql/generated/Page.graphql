@@ -1,0 +1,85 @@
+fragment PageFields on Page {
+  createdAt
+  deletedAt
+  deleted
+  updatedAt
+  active
+  content
+  description
+  externalUrl
+  id
+  imageObj
+  isExternalLink
+  isIndex
+  menu
+  name
+  navColor
+  password
+  slug
+  websiteId
+}
+
+fragment Page on Page {
+  ...PageFields
+  website {
+    ...WebsiteFields
+  }
+}
+
+query findUniquePage($where: PageWhereUniqueInput!) {
+  findUniquePage(where: $where) {
+    ...Page
+  }
+}
+
+query findManyPage(
+  $where: PageWhereInput
+  $orderBy: [PageOrderByWithRelationInput!]
+  $cursor: PageWhereUniqueInput
+  $skip: Int
+  $take: Int
+) {
+  findManyPage(where: $where, orderBy: $orderBy, cursor: $cursor, skip: $skip, take: $take) {
+    ...Page
+  }
+}
+
+query findManyPageCount(
+  $where: PageWhereInput
+  $orderBy: [PageOrderByWithRelationInput!]
+  $cursor: PageWhereUniqueInput
+  $skip: Int
+  $take: Int
+) {
+  findManyPageCount(where: $where, orderBy: $orderBy, cursor: $cursor, skip: $skip, take: $take)
+}
+
+mutation createOnePage($data: PageCreateInput!) {
+  createOnePage(data: $data) {
+    ...Page
+  }
+}
+
+mutation updateOnePage($where: PageWhereUniqueInput!, $data: PageUpdateInput!) {
+  updateOnePage(where: $where, data: $data) {
+    ...Page
+  }
+}
+
+mutation deleteOnePage($where: PageWhereUniqueInput!) {
+  deleteOnePage(where: $where) {
+    ...Page
+  }
+}
+
+mutation deleteManyPage($where: PageWhereInput) {
+  deleteManyPage(where: $where) {
+    count
+  }
+}
+
+mutation updateManyPage($where: PageWhereInput, $data: PageUpdateManyMutationInput!) {
+  updateManyPage(where: $where, data: $data) {
+    count
+  }
+}

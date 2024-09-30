@@ -1,0 +1,80 @@
+fragment SpeakerFields on Speaker {
+  createdAt
+  deletedAt
+  deleted
+  updatedAt
+  agendaId
+  description
+  eventId
+  id
+  imageObj
+  name
+}
+
+fragment Speaker on Speaker {
+  ...SpeakerFields
+  agenda {
+    ...AgendaFields
+  }
+  event {
+    ...EventFields
+  }
+}
+
+query findUniqueSpeaker($where: SpeakerWhereUniqueInput!) {
+  findUniqueSpeaker(where: $where) {
+    ...Speaker
+  }
+}
+
+query findManySpeaker(
+  $where: SpeakerWhereInput
+  $orderBy: [SpeakerOrderByWithRelationInput!]
+  $cursor: SpeakerWhereUniqueInput
+  $skip: Int
+  $take: Int
+) {
+  findManySpeaker(where: $where, orderBy: $orderBy, cursor: $cursor, skip: $skip, take: $take) {
+    ...Speaker
+  }
+}
+
+query findManySpeakerCount(
+  $where: SpeakerWhereInput
+  $orderBy: [SpeakerOrderByWithRelationInput!]
+  $cursor: SpeakerWhereUniqueInput
+  $skip: Int
+  $take: Int
+) {
+  findManySpeakerCount(where: $where, orderBy: $orderBy, cursor: $cursor, skip: $skip, take: $take)
+}
+
+mutation createOneSpeaker($data: SpeakerCreateInput!) {
+  createOneSpeaker(data: $data) {
+    ...Speaker
+  }
+}
+
+mutation updateOneSpeaker($where: SpeakerWhereUniqueInput!, $data: SpeakerUpdateInput!) {
+  updateOneSpeaker(where: $where, data: $data) {
+    ...Speaker
+  }
+}
+
+mutation deleteOneSpeaker($where: SpeakerWhereUniqueInput!) {
+  deleteOneSpeaker(where: $where) {
+    ...Speaker
+  }
+}
+
+mutation deleteManySpeaker($where: SpeakerWhereInput) {
+  deleteManySpeaker(where: $where) {
+    count
+  }
+}
+
+mutation updateManySpeaker($where: SpeakerWhereInput, $data: SpeakerUpdateManyMutationInput!) {
+  updateManySpeaker(where: $where, data: $data) {
+    count
+  }
+}

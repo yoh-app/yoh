@@ -1,0 +1,95 @@
+fragment WebsiteFields on Website {
+  createdAt
+  deletedAt
+  deleted
+  updatedAt
+  active
+  address
+  adminFilters
+  chain
+  currencyCode
+  description
+  gasless
+  hasLocation
+  id
+  imageObj
+  isTemplate
+  languageCode
+  locationAddress
+  locationLat
+  locationLng
+  logoObj
+  menu
+  name
+  phone
+  slug
+  stripeAccountId
+  themeColor
+  userId
+  walletAddress
+}
+
+fragment Website on Website {
+  ...WebsiteFields
+  user {
+    ...UserFields
+  }
+}
+
+query findUniqueWebsite($where: WebsiteWhereUniqueInput!) {
+  findUniqueWebsite(where: $where) {
+    ...Website
+  }
+}
+
+query findManyWebsite(
+  $where: WebsiteWhereInput
+  $orderBy: [WebsiteOrderByWithRelationInput!]
+  $cursor: WebsiteWhereUniqueInput
+  $skip: Int
+  $take: Int
+) {
+  findManyWebsite(where: $where, orderBy: $orderBy, cursor: $cursor, skip: $skip, take: $take) {
+    ...Website
+  }
+}
+
+query findManyWebsiteCount(
+  $where: WebsiteWhereInput
+  $orderBy: [WebsiteOrderByWithRelationInput!]
+  $cursor: WebsiteWhereUniqueInput
+  $skip: Int
+  $take: Int
+) {
+  findManyWebsiteCount(where: $where, orderBy: $orderBy, cursor: $cursor, skip: $skip, take: $take)
+}
+
+mutation createOneWebsite($data: WebsiteCreateInput!) {
+  createOneWebsite(data: $data) {
+    ...Website
+  }
+}
+
+mutation updateOneWebsite($where: WebsiteWhereUniqueInput!, $data: WebsiteUpdateInput!) {
+  updateOneWebsite(where: $where, data: $data) {
+    ...Website
+  }
+}
+
+mutation deleteOneWebsite($where: WebsiteWhereUniqueInput!) {
+  deleteOneWebsite(where: $where) {
+    ...Website
+  }
+}
+
+mutation deleteManyWebsite($where: WebsiteWhereInput) {
+  deleteManyWebsite(where: $where) {
+    count
+  }
+}
+
+mutation updateManyWebsite($where: WebsiteWhereInput, $data: WebsiteUpdateManyMutationInput!) {
+  updateManyWebsite(where: $where, data: $data) {
+    count
+  }
+}

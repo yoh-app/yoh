@@ -1,0 +1,80 @@
+fragment ProductCollectionFields on ProductCollection {
+  createdAt
+  deletedAt
+  deleted
+  updatedAt
+  active
+  description
+  displayTitle
+  id
+  name
+  websiteId
+}
+
+fragment ProductCollection on ProductCollection {
+  ...ProductCollectionFields
+  website {
+    ...WebsiteFields
+  }
+}
+
+query findUniqueProductCollection($where: ProductCollectionWhereUniqueInput!) {
+  findUniqueProductCollection(where: $where) {
+    ...ProductCollection
+  }
+}
+
+query findManyProductCollection(
+  $where: ProductCollectionWhereInput
+  $orderBy: [ProductCollectionOrderByWithRelationInput!]
+  $cursor: ProductCollectionWhereUniqueInput
+  $skip: Int
+  $take: Int
+) {
+  findManyProductCollection(where: $where, orderBy: $orderBy, cursor: $cursor, skip: $skip, take: $take) {
+    ...ProductCollection
+  }
+}
+
+query findManyProductCollectionCount(
+  $where: ProductCollectionWhereInput
+  $orderBy: [ProductCollectionOrderByWithRelationInput!]
+  $cursor: ProductCollectionWhereUniqueInput
+  $skip: Int
+  $take: Int
+) {
+  findManyProductCollectionCount(where: $where, orderBy: $orderBy, cursor: $cursor, skip: $skip, take: $take)
+}
+
+mutation createOneProductCollection($data: ProductCollectionCreateInput!) {
+  createOneProductCollection(data: $data) {
+    ...ProductCollection
+  }
+}
+
+mutation updateOneProductCollection($where: ProductCollectionWhereUniqueInput!, $data: ProductCollectionUpdateInput!) {
+  updateOneProductCollection(where: $where, data: $data) {
+    ...ProductCollection
+  }
+}
+
+mutation deleteOneProductCollection($where: ProductCollectionWhereUniqueInput!) {
+  deleteOneProductCollection(where: $where) {
+    ...ProductCollection
+  }
+}
+
+mutation deleteManyProductCollection($where: ProductCollectionWhereInput) {
+  deleteManyProductCollection(where: $where) {
+    count
+  }
+}
+
+mutation updateManyProductCollection(
+  $where: ProductCollectionWhereInput
+  $data: ProductCollectionUpdateManyMutationInput!
+) {
+  updateManyProductCollection(where: $where, data: $data) {
+    count
+  }
+}

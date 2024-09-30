@@ -1,0 +1,8 @@
+{
+  "WebsiteAdmin.Login.welcom": "Welcome to Yoh.app",
+  "WebsiteAdmin.Login.description": "填寫電子郵件送出後至郵件中點擊按鈕登入",
+  "WebsiteAdmin.Login.button": "登入",
+  "WebsiteAdmin.CheckEmailModal.keep": "請保持此視窗開啟",
+  "WebsiteAdmin.CheckEmailModal.description": "請至您的電子信箱點擊確認信裡的magic words按鈕",
+  "WebsiteAdmin.CheckEmailModal.cancel": "取消"
+}

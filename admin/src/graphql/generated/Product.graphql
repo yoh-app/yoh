@@ -1,0 +1,113 @@
+fragment ProductFields on Product {
+  createdAt
+  deletedAt
+  deleted
+  updatedAt
+  active
+  chain
+  commissionFee
+  content
+  contractAddress
+  description
+  endTime
+  eventEndTime
+  eventStartTime
+  externalNftChain
+  externalNftContractAddress
+  externalUrl
+  gallery
+  hasLocation
+  id
+  imageObj
+  locationAddress
+  locationLat
+  locationLng
+  maxQuantity
+  name
+  price
+  productType
+  prodyctType
+  quantity
+  quantitySold
+  royaltyFee
+  salePrice
+  slug
+  startTime
+  transactionHash
+  useCommission
+  useExternalNft
+  useNft
+  useQuantity
+  useRoyalty
+  useStartTime
+  useUsd
+  useVariations
+  variationOptions
+  variations
+  websiteId
+}
+
+fragment Product on Product {
+  ...ProductFields
+  website {
+    ...WebsiteFields
+  }
+}
+
+query findUniqueProduct($where: ProductWhereUniqueInput!) {
+  findUniqueProduct(where: $where) {
+    ...Product
+  }
+}
+
+query findManyProduct(
+  $where: ProductWhereInput
+  $orderBy: [ProductOrderByWithRelationInput!]
+  $cursor: ProductWhereUniqueInput
+  $skip: Int
+  $take: Int
+) {
+  findManyProduct(where: $where, orderBy: $orderBy, cursor: $cursor, skip: $skip, take: $take) {
+    ...Product
+  }
+}
+
+query findManyProductCount(
+  $where: ProductWhereInput
+  $orderBy: [ProductOrderByWithRelationInput!]
+  $cursor: ProductWhereUniqueInput
+  $skip: Int
+  $take: Int
+) {
+  findManyProductCount(where: $where, orderBy: $orderBy, cursor: $cursor, skip: $skip, take: $take)
+}
+
+mutation createOneProduct($data: ProductCreateInput!) {
+  createOneProduct(data: $data) {
+    ...Product
+  }
+}
+
+mutation updateOneProduct($where: ProductWhereUniqueInput!, $data: ProductUpdateInput!) {
+  updateOneProduct(where: $where, data: $data) {
+    ...Product
+  }
+}
+
+mutation deleteOneProduct($where: ProductWhereUniqueInput!) {
+  deleteOneProduct(where: $where) {
+    ...Product
+  }
+}
+
+mutation deleteManyProduct($where: ProductWhereInput) {
+  deleteManyProduct(where: $where) {
+    count
+  }
+}
+
+mutation updateManyProduct($where: ProductWhereInput, $data: ProductUpdateManyMutationInput!) {
+  updateManyProduct(where: $where, data: $data) {
+    count
+  }
+}

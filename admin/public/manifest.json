@@ -1,0 +1,9 @@
+{
+  "name": "yoh.app",
+  "short_name": "yoh.app",
+  "display": "standalone",
+  "start_url": "/",
+  "theme_color": "#000000",
+  "background_color": "#ffffff",
+  "icons": []
+}

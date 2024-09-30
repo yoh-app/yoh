@@ -1,0 +1,85 @@
+fragment NotificationFields on Notification {
+  createdAt
+  deletedAt
+  deleted
+  updatedAt
+  action
+  description
+  id
+  isUnRead
+  message
+  model
+  modelId
+  title
+  url
+  userId
+  websiteId
+}
+
+fragment Notification on Notification {
+  ...NotificationFields
+  user {
+    ...UserFields
+  }
+  website {
+    ...WebsiteFields
+  }
+}
+
+query findUniqueNotification($where: NotificationWhereUniqueInput!) {
+  findUniqueNotification(where: $where) {
+    ...Notification
+  }
+}
+
+query findManyNotification(
+  $where: NotificationWhereInput
+  $orderBy: [NotificationOrderByWithRelationInput!]
+  $cursor: NotificationWhereUniqueInput
+  $skip: Int
+  $take: Int
+) {
+  findManyNotification(where: $where, orderBy: $orderBy, cursor: $cursor, skip: $skip, take: $take) {
+    ...Notification
+  }
+}
+
+query findManyNotificationCount(
+  $where: NotificationWhereInput
+  $orderBy: [NotificationOrderByWithRelationInput!]
+  $cursor: NotificationWhereUniqueInput
+  $skip: Int
+  $take: Int
+) {
+  findManyNotificationCount(where: $where, orderBy: $orderBy, cursor: $cursor, skip: $skip, take: $take)
+}
+
+mutation createOneNotification($data: NotificationCreateInput!) {
+  createOneNotification(data: $data) {
+    ...Notification
+  }
+}
+
+mutation updateOneNotification($where: NotificationWhereUniqueInput!, $data: NotificationUpdateInput!) {
+  updateOneNotification(where: $where, data: $data) {
+    ...Notification
+  }
+}
+
+mutation deleteOneNotification($where: NotificationWhereUniqueInput!) {
+  deleteOneNotification(where: $where) {
+    ...Notification
+  }
+}
+
+mutation deleteManyNotification($where: NotificationWhereInput) {
+  deleteManyNotification(where: $where) {
+    count
+  }
+}
+
+mutation updateManyNotification($where: NotificationWhereInput, $data: NotificationUpdateManyMutationInput!) {
+  updateManyNotification(where: $where, data: $data) {
+    count
+  }
+}

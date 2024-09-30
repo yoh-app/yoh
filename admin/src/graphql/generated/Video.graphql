@@ -1,0 +1,88 @@
+fragment VideoFields on Video {
+  createdAt
+  deletedAt
+  deleted
+  updatedAt
+  active
+  content
+  description
+  externalUrl
+  id
+  imageObj
+  isExternalLink
+  isIndex
+  isYoutube
+  menu
+  name
+  navColor
+  password
+  slug
+  videoObj
+  videoPreviewObj
+  websiteId
+}
+
+fragment Video on Video {
+  ...VideoFields
+  website {
+    ...WebsiteFields
+  }
+}
+
+query findUniqueVideo($where: VideoWhereUniqueInput!) {
+  findUniqueVideo(where: $where) {
+    ...Video
+  }
+}
+
+query findManyVideo(
+  $where: VideoWhereInput
+  $orderBy: [VideoOrderByWithRelationInput!]
+  $cursor: VideoWhereUniqueInput
+  $skip: Int
+  $take: Int
+) {
+  findManyVideo(where: $where, orderBy: $orderBy, cursor: $cursor, skip: $skip, take: $take) {
+    ...Video
+  }
+}
+
+query findManyVideoCount(
+  $where: VideoWhereInput
+  $orderBy: [VideoOrderByWithRelationInput!]
+  $cursor: VideoWhereUniqueInput
+  $skip: Int
+  $take: Int
+) {
+  findManyVideoCount(where: $where, orderBy: $orderBy, cursor: $cursor, skip: $skip, take: $take)
+}
+
+mutation createOneVideo($data: VideoCreateInput!) {
+  createOneVideo(data: $data) {
+    ...Video
+  }
+}
+
+mutation updateOneVideo($where: VideoWhereUniqueInput!, $data: VideoUpdateInput!) {
+  updateOneVideo(where: $where, data: $data) {
+    ...Video
+  }
+}
+
+mutation deleteOneVideo($where: VideoWhereUniqueInput!) {
+  deleteOneVideo(where: $where) {
+    ...Video
+  }
+}
+
+mutation deleteManyVideo($where: VideoWhereInput) {
+  deleteManyVideo(where: $where) {
+    count
+  }
+}
+
+mutation updateManyVideo($where: VideoWhereInput, $data: VideoUpdateManyMutationInput!) {
+  updateManyVideo(where: $where, data: $data) {
+    count
+  }
+}

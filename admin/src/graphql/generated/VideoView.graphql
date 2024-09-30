@@ -1,0 +1,74 @@
+fragment VideoViewFields on VideoView {
+  createdAt
+  deletedAt
+  deleted
+  updatedAt
+  id
+  ip
+  videoId
+}
+
+fragment VideoView on VideoView {
+  ...VideoViewFields
+  video {
+    ...VideoFields
+  }
+}
+
+query findUniqueVideoView($where: VideoViewWhereUniqueInput!) {
+  findUniqueVideoView(where: $where) {
+    ...VideoView
+  }
+}
+
+query findManyVideoView(
+  $where: VideoViewWhereInput
+  $orderBy: [VideoViewOrderByWithRelationInput!]
+  $cursor: VideoViewWhereUniqueInput
+  $skip: Int
+  $take: Int
+) {
+  findManyVideoView(where: $where, orderBy: $orderBy, cursor: $cursor, skip: $skip, take: $take) {
+    ...VideoView
+  }
+}
+
+query findManyVideoViewCount(
+  $where: VideoViewWhereInput
+  $orderBy: [VideoViewOrderByWithRelationInput!]
+  $cursor: VideoViewWhereUniqueInput
+  $skip: Int
+  $take: Int
+) {
+  findManyVideoViewCount(where: $where, orderBy: $orderBy, cursor: $cursor, skip: $skip, take: $take)
+}
+
+mutation createOneVideoView($data: VideoViewCreateInput!) {
+  createOneVideoView(data: $data) {
+    ...VideoView
+  }
+}
+
+mutation updateOneVideoView($where: VideoViewWhereUniqueInput!, $data: VideoViewUpdateInput!) {
+  updateOneVideoView(where: $where, data: $data) {
+    ...VideoView
+  }
+}
+
+mutation deleteOneVideoView($where: VideoViewWhereUniqueInput!) {
+  deleteOneVideoView(where: $where) {
+    ...VideoView
+  }
+}
+
+mutation deleteManyVideoView($where: VideoViewWhereInput) {
+  deleteManyVideoView(where: $where) {
+    count
+  }
+}
+
+mutation updateManyVideoView($where: VideoViewWhereInput, $data: VideoViewUpdateManyMutationInput!) {
+  updateManyVideoView(where: $where, data: $data) {
+    count
+  }
+}
